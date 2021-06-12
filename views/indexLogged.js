@@ -9,12 +9,12 @@ const userName = document.getElementById("userName");
 if(user){
     btnLogOut.addEventListener("click", function(){
         sessionStorage.clear();
-        location.href = "/HTML/index.html"
+        location.href = "/index.html"
       })
 
-    btnPlay.addEventListener("click", function(){
+    /*btnPlay.addEventListener("click", function(){
       location.href = "/HTML/quizz.html"
-    })
+    })*/
 
       userName.innerText = user+" nivel: "+level;
 
