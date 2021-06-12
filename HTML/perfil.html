@@ -1,0 +1,188 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="../css/utilizador.css">
+</head>
+
+<body>
+  <div class="container">
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
+    <div class="container ">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">
+        <strong>Coronacademy</strong>
+      </a>
+      <!-- Links -->
+      <div style="margin-right: 2vw;">
+        <ul class="navbar-nav">
+          <li class="nav-item py-2" style="padding-right: 2vw;">
+            <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Learn+
+            </a>
+          </li>
+          <li class="nav-item py-2" style="padding-right: 2vw;">
+            <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Quiz
+            </a>
+          </li>
+          <!--LOGIN ICON PARA MODAL-->
+          <li class="nav-item" style="padding-right: 2vw; padding-top: 0.5vw;">
+            <a href="perfil.html">
+              <i class="bi bi-person-square" style="color: cornflowerblue; font-size: 2rem;"></i>
+            </a>
+          </li>
+          <li>
+            <a id="btnLogOut" class="btn navbar-btn ml-md-2 btn-warning text-dark" contenteditable="false">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5">
+    <div class="container border-width">
+      <div class="row">
+        <div class="col-md-6">
+
+          <div id="perfil">
+            <div class="card" style="margin-top: 2vw; margin-left: -3vw;">
+              <div id="imgSlot"></div>
+              <div class="card-body">
+                <h4 class="card-title" id="userName"></h4>
+                <p id="userLevel" class="card-text">Nivel:</p> <a id="selectButton" href="#" class="btn btn-primary"
+                  contenteditable="false">Selecionar Foto
+                  de Perfil</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="direita" class="col-md-6">
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <h3 id="nome" class="">Nome:</h3> <br>
+            <div class="col-md-6">
+              <h4 id="userName2"></h4>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <h4 id="indicadores" class="">Data de nascimento: </h4>
+
+            <br>
+            <div class="col-md-6">
+              <h4 id="userData"></h4>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <h4 id="indicadores" class="">E-mail: </h4>
+            <div class="col-md-6">
+              <h4 id="userEmail"></h4>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <h4 id="indicadores">Experiencia: </h4>
+            <div class="col-md-6">
+              <h4 id="userExp"> </h4>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="progress">
+                <div id="expProgress" class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0"
+                  aria-valuemax="100" style=" text-align:center;">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"><a id="editButton" class="btn btn-outline-primary">Editar</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+  <!--img modal-->
+  <div id="imgModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <h4>Imagem</h4>
+
+      <div class="container" id="imgContainer"></div>
+      <div class="row pabaixo">
+        <div class="col-md-3" style="text-align:center;">
+        </div>
+        <div class="col-md-6" style="text-align:center;">
+          <button id="btnLeave" type="button" class="btn btn-primary">Sair</button>
+        </div>
+        <div class="col-md-3" style="text-align:center;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/views/utilizador.js" type="module"></script>
+  <script src="../js/controllers/userController.js" type="module"></script>
+  <script src="../js/models/userModel.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
+
+<style>
+    body {
+      background-image: url("../assets/Background.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-color: #f7f4f8;
+      font-family: "Poppins";
+    }
+  
+    strong {
+      color: #0C0746;
+      font-size: 2rem;
+      text-decoration: 5px underline solid orange;
+      font-family: "Poppins";
+    }
+  
+    #content {
+      position: absolute;
+      top: 30%;
+      left: 15vw;
+    }
+  
+    h1 {
+      padding-bottom: 4vh;
+    }
+  
+    #btnLogOut {
+      margin-top: 12px;
+      font-size: 120%;
+    }
+  </style> 
