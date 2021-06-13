@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="title">Catálogo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
+        <div class="container ">
+            <!-- Brand -->
+            <a class="navbar-brand" href="indexLogged.html">
+                <strong>Coronacademy</strong>
+            </a>
+
+            <!-- Links -->
+            <div style="margin-right: 2vw;">
+                <ul class="navbar-nav">
+                    <li>
+                        <select id="sort" style="margin-top:0.8vw">
+                            <option value="A-Z">A-Z</option>
+                            <option value="Z-A">Z-A</option>
+                        </select></li>
+                    <li id="busca" style="padding-right: 2vw; margin-top:0.8vw">
+                        <form action="/search" class="search" method="get">
+                            <input id="txtbusca" name="q" type="text" value="" placeholder="Pesquisa..." /
+                                style="height: 37px;">
+                            <button id="btnBusca" type="button">OK</button>
+                        </form>
+                    </li>
+                    <li class="nav-item py-2" style="padding-right: 2vw;">
+                        <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+                            Learn+
+                        </a>
+                    </li>
+                    <li class="nav-item py-2" style="padding-right: 2vw;">
+                        <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+                            Quiz
+                        </a>
+                    </li>
+                    <!--LOGIN ICON PARA MODAL-->                    
+                    <li class="nav-item" style="padding-right: 2vw; padding-top: 0.5vw;">
+                        <a href="perfil.html">
+                            <i class="bi bi-person-square" style="color: cornflowerblue; font-size: 2rem;"></i>
+                        </a>
+                    </li>
+                    
+                <li class="nav-item"> <a id="userName" class="nav-link" href="/HTML/perfil.html"></a> </li>
+                    <li>
+                        <a id="btnLogOut" class="btn navbar-btn ml-md-2 btn-warning text-dark"
+                            contenteditable="false">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="body" class="container">
+        <div class="py-5">
+            <div class="container w-100 h-100">
+                <div class="row">
+                    <div class="text-center mx-auto col-md-8">
+                    </div>
+                </div>
+                <div id="cardContainer" class="row">
+
+
+                </div>
+            </div>
+            <!--tag modal-->
+            <div id="tagModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h4>Tags:</h4>
+                    <div class="container" id="tagList">
+                    </div>
+                    <input id="txtTag" class="swal2-input" placeholder="Tag" required>
+                    <div style="text-align:center;">
+                        <button id="addTag" type="button" class="btn btn-primary">Adicionar</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--comments modal-->
+            <div id="commentModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h4>Comentarios:</h4>
+                    <div class="container" id="commentList">
+                    </div>
+                    <input id="txtComment" class="swal2-input" placeholder="comentário" required>
+
+                    <div style="text-align:center;">
+                        <button id="comentar" type="button" class="btn btn-primary">Comentar</button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <script src="../controllers/catalogController.js" type="module"></script>
+            <script src="../models/catalogModel.js" type="module"></script>
+            <script src="../views/catalog.js" type="module"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js">
+            </script>
+
+</body>
+<style>
+    body {
+        background-image: url("../assets/Background.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #f7f4f8;
+        font-family: "Poppins";
+    }
+
+    strong {
+        color: #0C0746;
+        font-size: 2rem;
+        text-decoration: 5px underline solid orange;
+        font-family: "Poppins";
+    }
+
+    #content {
+        position: absolute;
+        top: 30%;
+        left: 15vw;
+    }
+
+    h1 {
+        padding-bottom: 4vh;
+    }
+
+    #btnLogOut {
+        margin-top: 12px;
+        font-size: 120%;
+    }
+</style>
+
+</html>
