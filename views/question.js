@@ -25,11 +25,13 @@ const btnCatalog = document.getElementById("btnCatalog")
 const endModal = document.getElementById("endModal")
 const inputSugest = document.getElementById("inputSugest")
 const btnSend = document.getElementById("btnSend")
+const userName = document.getElementById("userName")
 
 
 //verificar se o utilizador se encontra logged senão envia-o de volta para o menu inicial
 if (user) {
     loadQuestion();
+    console.log(level)
     userName.innerText = userCapitalized + " Nível: " + level;
     btnCatalog.addEventListener("click", function(){
         location.href= "catalog.html"
