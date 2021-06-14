@@ -13,9 +13,9 @@ if (localStorage.users) {
     users = JSON.parse(localStorage.users)
 } else {
     // Só vai entrar aqui a primeira vez que o site é iniciado
-    const user1 = new User("Edu", "26-09-1997", "../imagens/userPear.jpg", 10, "admin123", "eduardoFerreira@gmail.com", "admin")
-    const user2 = new User("Tico", "15-02-1997", "../imagens/userApple.jpg", 2, "password123", "anafixe@gmail.com", "criança")
-    const user3 = new User("Maria", "29-03-1999", "../imagens/userBird.png", 8, "passProfixe", "mariaadmin@gmail.com", "admin")
+    const user1 = new User("Edu", "26-09-1997", "../imagens/user5.png", 10, "admin123", "eduardoFerreira@gmail.com", "admin")
+    const user2 = new User("Tico", "15-02-1997", "../imagens/user3.png", 2, "password123", "anafixe@gmail.com", "criança")
+    const user3 = new User("Maria", "29-03-1999", "../imagens/user2.png", 8, "passProfixe", "mariaadmin@gmail.com", "admin")
     users.push(user1, user2, user3)
     localStorage.setItem("users", JSON.stringify(users))
 }
@@ -26,15 +26,15 @@ if (localStorage.photos) {
 } else {
     // Só vai entrar aqui a primeira vez e passa esta informação para a localstorage
 
-    const photo1 = new Photo("Apple","../assets/User1.png")
-    const photo2 = new Photo("pear","../assets/User2.png")
-    const photo3 = new Photo("bird","../assets/User3.png")
-    const photo4 = new Photo("fish","../assets/User4.png")
-    const photo5 = new Photo("turtle","../assets/User5.png")
-    const photo6 = new Photo("unifish","../assets/User6.png")
-    const photo7 = new Photo("shark","../assets/User7.png")
-    const photo8 = new Photo("fishmania","../assets/User8.png")
-    const photo9 = new Photo("tropical","../assets/User9.png")
+    const photo1 = new Photo("user1","../assets/User1.png")
+    const photo2 = new Photo("user2","../assets/User2.png")
+    const photo3 = new Photo("user3","../assets/User3.png")
+    const photo4 = new Photo("user4","../assets/User4.png")
+    const photo5 = new Photo("user5","../assets/User5.png")
+    const photo6 = new Photo("user6","../assets/User6.png")
+    const photo7 = new Photo("user7","../assets/User7.png")
+    const photo8 = new Photo("user8","../assets/User8.png")
+    const photo9 = new Photo("user9","../assets/User9.png")
 
     photos.push(photo1, photo2, photo3,photo4,photo5,photo6,photo7,photo8,photo9)
     localStorage.setItem("photos", JSON.stringify(photos))

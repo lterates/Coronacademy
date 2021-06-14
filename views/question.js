@@ -122,9 +122,9 @@ function loadQuestion() {
 btnRetry.addEventListener("click", function () {
     location.reload()
 })
-//button de sair do quizz para o menu inicial
+//button de sair do quiz para o menu inicial
 btnLeave.addEventListener("click", function () {
-    location.href = "/indexLogged.html"
+    location.href = "html/indexLogged.html"
 })
 //funçao que corre quando o utilizador perde
 function lose(exp, cont) {
