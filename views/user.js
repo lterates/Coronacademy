@@ -92,7 +92,7 @@ if (user) {
 
 //renderizar a informaçao do utilizador
 function renderUser(info) {
-    imgSlot.innerHTML = '<img id="userImg" src="' + info[1] + '" class="card-img-top" alt="Card image cap">'
+    imgSlot.innerHTML = '<img id="userImg" src="' + info[1] + '" class="card-img-top" alt="Image goes here">'
     userName.innerHTML = user
     userName2.innerHTML = user
     userLevel.innerHTML = "Nível: " + level

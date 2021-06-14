@@ -13,9 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
   <script src="../views/question.js" type="module"></script>
   <script src="../controllers/questionController.js" type="module"></script>
+  <script type="module" src="../views/user.js"></script>
+  <script type="module" src="../views/indexLogged.js"></script>
   <script src="../models/questionModel.js" type="module"></script>
-  <script src="../views/user.js"></script>
-  <script src="../views/user.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
 </head>
@@ -23,44 +23,44 @@
 <body>
   <div class="container">
   </div>
-    <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
-        <div class="container ">
-          <!-- Brand -->
-          <a class="navbar-brand" href="../index.html">
-            <strong>Coronacademy</strong>
-          </a>
-          <!-- Links -->
-          <div style="margin-right: 2vw;">
-            <ul class="navbar-nav">
-              <li class="nav-item py-2" style="padding-right: 2vw;">
-                <a href="catalog.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
-                  Learn+
-                </a>
-              </li>
-              <li class="nav-item py-2" style="padding-right: 2vw;">
-                <a href="quizz.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
-                  Quiz
-                </a>
-              </li>
-              <!--LOGIN ICON PARA MODAL-->
-              <li class="nav-item" style="padding-right: 1vw; padding-top: 1.5vh;">
-                <a href="perfil.html">
-                  <div id="imgSlot" style="max-width: 2vw;">
-                    <i class="bi bi-person-square" style="color: cornflowerblue; font-size: 2rem;"></i>
-                  </div>
-                </a>
-              </li>
-              <li style="padding-top: 1.7vh;"> 
-                <a href="perfil.html" style="text-decoration-line: none; color: #0C0746;"><span class="nav-item py-2 text-center" style="margin-right: 2vw; font-size: 1.3rem;" id="userName"></span></a>
-              </li>
-              <li>
-                <a id="btnLogOut" class="btn navbar-btn ml-md-2 btn-warning text-dark" contenteditable="false">Log Out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+ <!-- Navbar -->
+ <nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
+    <div class="container ">
+      <!-- Brand -->
+      <a class="navbar-brand" href="indexLogged.html">
+        <strong>Coronacademy</strong>
+      </a>
+      <!-- Links -->
+      <div style="margin-right: 2vw;">
+        <ul class="navbar-nav">
+          <li class="nav-item py-2" style="padding-right: 2vw;">
+            <a href="catalog.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Learn+
+            </a>
+          </li>
+          <li class="nav-item py-2" style="padding-right: 2vw;">
+            <a href="quizz.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Quiz
+            </a>
+          </li>
+          <!--LOGIN ICON PARA MODAL-->
+          <li class="nav-item" style="padding-right: 1vw; padding-top: 1.5vh;">
+            <a href="perfil.html">
+              <div id="imgSlot" style="max-width: 2vw;">
+                <i class="bi bi-person-square" style="color: cornflowerblue; font-size: 2rem;"></i>
+              </div>
+            </a>
+          </li>
+          <li style="padding-top: 1.2vh;"> 
+            <a href="perfil.html" class="nav-link" style="color: #0C0746;"><span id="userName" class="nav-item py-2 text-center" style="margin-right: 2vw; font-size: 1.3rem;" ></span></a>
+          </li>
+          <li>
+            <a id="btnLogOut" class="btn navbar-btn ml-md-2 btn-warning text-dark" contenteditable="false">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!--QUIZ-->
   <div id="questionContainer" class="py-5">
@@ -154,29 +154,29 @@ body {
     background-size: cover;
     background-color: #f7f4f8;
     font-family: "Poppins";
-}
+  }
 
-strong {
+  strong {
     color: #0C0746;
     font-size: 2rem;
     text-decoration: 5px underline solid orange;
     font-family: "Poppins";
-}
+  }
 
+  #content {
+    position: absolute;
+    top: 30%;
+    left: 15vw;
+  }
 
-#btnLogOut {
+  h1 {
+    padding-bottom: 4vh;
+  }
+
+  #btnLogOut {
     margin-top: 12px;
     font-size: 120%;
   }
-
-#title{
-    color: rgb(252, 122, 0);
-}
-
-#icon {
-    color: rgb(252, 122, 0, 0);
-    height: 15px;
-}
 
 #selectButton {
     background-color: rgb(252, 122, 0);
@@ -189,13 +189,6 @@ strong {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-}
-
-#btnCatalog{
-    margin: auto;
-    width: 70%;
-    background-color: rgb(252, 122, 0);
-    color: white;
 }
 #inputSugest{
     margin-bottom: 10px;
