@@ -77,14 +77,14 @@ function loadQuestion() {
     
         //renderizar as perguntas e a questao
         questionView.innerHTML = parts[0];
-        btnA.style.backgroundColor = "rgb(252, 122, 0)"
+        btnA.style.backgroundColor = "#ffa500"
         btnA.innerHTML = parts[1];
         btnB.innerHTML = parts[2];
-        btnB.style.backgroundColor = "rgb(252, 122, 0)"
+        btnB.style.backgroundColor = "#ffa500"
         btnC.innerHTML = parts[3];
-        btnC.style.backgroundColor = "rgb(252, 122, 0)"
+        btnC.style.backgroundColor = "#ffa500"
         btnD.innerHTML = parts[4];
-        btnD.style.backgroundColor = "rgb(252, 122, 0)"
+        btnD.style.backgroundColor = "#ffa500"
     
     
     
