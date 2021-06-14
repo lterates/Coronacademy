@@ -22,6 +22,7 @@ const txtCorrect = document.getElementById("quantCorrect")
 const expGained = document.getElementById("expGain")
 const levelModal = document.getElementById("levelModal")
 const btnCatalog = document.getElementById("btnCatalog")
+const btnPerfil = document.getElementById("btnPerfil")
 const endModal = document.getElementById("endModal")
 const inputSugest = document.getElementById("inputSugest")
 const btnSend = document.getElementById("btnSend")
@@ -40,6 +41,9 @@ if (user) {
     btnLogOut.addEventListener("click", function () {
         sessionStorage.clear();
         location.href = "../index.html"
+    })
+    btnPerfil.addEventListener("click", function () {
+        location.href = "perfil.html"
     })
     //log out da conta
 } else {
