@@ -5,5 +5,4 @@ export default class Carta {
         this.card = card
         this.descricao = descricao
     }
-
 }

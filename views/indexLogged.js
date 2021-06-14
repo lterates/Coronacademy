@@ -1,4 +1,5 @@
 const user = sessionStorage.getItem('user');
+let userCapitalized = user.charAt(0).toUpperCase() + user.slice(1)
 const level = sessionStorage.getItem('level')
 
 const btnLogOut = document.getElementById("btnLogOut");
@@ -11,7 +12,7 @@ if(user){
         sessionStorage.clear();
         location.href = "/index.html"
     })
-    userName.innerText = user + " nivel: " + level;
+    userName.innerText = userCapitalized + " Nível: " + level;
 
 }else{
     console.log("Error is coming from indexLogged.js")

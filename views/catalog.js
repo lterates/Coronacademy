@@ -4,6 +4,7 @@ import { createCard, getCardInfo, writeComment, getComments, saveLike, verifyLik
 //ir buscar a sessionstorage o user atual e o seu nivel
 const user = sessionStorage.getItem('user');
 const level = sessionStorage.getItem('level')
+let userCapitalized = user.charAt(0).toUpperCase() + user.slice(1)
 
 
 //criar variaveis dos varios botoes e containers
@@ -16,6 +17,7 @@ const sort = document.getElementById("sort");
 //verificar se o utilizador econtra se logado senão envia o de volta para o menu inicial
 if (user) {
   //carregar todas as cartas
+  userName.innerText = userCapitalized + " Nível: " + level;
   cardContainer.innerHTML = createCard(level);
   let images = document.getElementsByClassName("view");
   //fazer as cartas clicaveis e que abram uma modal
@@ -36,17 +38,13 @@ if (user) {
 
   sort.addEventListener("change", function(){
       cardContainer.innerHTML =  createCardSort(level, sort.value);
-      
-    
   })
-
-
-
 } else {
   alert("user not loged in!");
   location.href = "/index.html"
 }
-//funçao que pesquisa se alguma carta tem algures no nome a combinaçao de letras pesquisada pelo utilizador
+
+//função que pesquisa se alguma carta tem algures no nome a combinaçao de letras pesquisada pelo utilizador
   function search() {
     let input, filter, container, card, a, i, txtValue;
     input = document.getElementById("txtbusca");
@@ -63,23 +61,12 @@ if (user) {
             card[i].style.display = "";
         } else {
             card[i].style.display = "none";
-        }
-        
+        }   
     }
-    /*
-    for(let j = 0; j<tags.length;j++){
-        let tagName = tags[j]
-        if(tagName.toUpperCase().indexOf(filter)> -1){
-          card[0].style.display = "";
-        }else {
-          card[0].style.display = "none";
-      }
-    }
-    */
 }
 
 
-//funçao que abre a modal da informaçao das cartas
+//função que abre a modal da informação das cartas
 function openModal(id) {
   let cardInfo = getCardInfo(id);
   let canLike = verifyLike(id, user);

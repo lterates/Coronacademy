@@ -85,8 +85,8 @@ if (user) {
 
     //no caso do user não estar logged
 } else {
-    console.log("error is coming from user.js");
-    alert("user not logged in!");
+    console.log("Error is coming from user.js");
+    alert("Não foi efetuado o Login!");
     //location.href = "/index.html"
 }
 

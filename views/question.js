@@ -4,6 +4,7 @@ import { addExp, getExp, resetExp, sendSugest } from "../controllers/userControl
 
 //ir buscar a sessionstorage o user atual e o seu nivel
 const user = sessionStorage.getItem('user');
+let userCapitalized = user.charAt(0).toUpperCase() + user.slice(1)
 const level = sessionStorage.getItem('level')
 let cont = 0;
 let exp = 0;
@@ -29,7 +30,7 @@ const btnSend = document.getElementById("btnSend")
 //verificar se o utilizador se encontra logged senão envia-o de volta para o menu inicial
 if (user) {
     loadQuestion();
-    userName.innerText = user + " Nível: " + level;
+    userName.innerText = userCapitalized + " Nível: " + level;
     btnCatalog.addEventListener("click", function(){
         location.href= "catalog.html"
     })
