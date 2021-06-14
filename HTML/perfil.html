@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Perfil</title>
+  <title>Coronacademy</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <script src="../views/user.js" type="module"></script>
+  <script src="../controllers/userController.js" type="module"></script>
+  <script src="../models/userModel.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -54,10 +60,10 @@
   <div class="py-5">
     <div class="container border-width">
       <div class="row">
-        <div class="col-md-6">
-          <div id="perfil">
+        <div id="leftCol" class="col-md-6">
+          <div id="perfil" class="text-center">
             <div class="card" style="margin-top: 2vw; margin-left: -3vw;">
-              <div id="imgSlot"></div>
+              <div id="imgSlot" style="max-width: 15vw; align-self: center;"></div>
               <div class="card-body">
                 <h4 class="card-title" id="userName"></h4>
                 <p id="userLevel" class="card-text">Nivel:</p> <a id="selectButton" href="#" class="btn btn-success"
@@ -66,7 +72,8 @@
             </div>
           </div>
         </div>
-        <div id="direita" class="col-md-6">
+        
+        <div id="rightCol" class="col-md-6" style="padding-left: 4vw;">
           <br>
           <br>
           <br>
@@ -101,8 +108,8 @@
           <br>
           <div class="row">
             <div class="col-md-12">
-              <div class="progress">
-                <div id="expProgress" class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0"
+              <div class="progress" style="height: 5vh; background-color: lightgrey;">
+                <div id="expProgress" class="progress-bar bg-warning" role="progressbar" aria-valuenow="5" aria-valuemin="0"
                   aria-valuemax="100" style=" text-align:center;">
                 </div>
               </div>
@@ -117,18 +124,16 @@
   </div>
   </div>
 
+  <!--MODAL DA FOTO-->
   </div>
-  <!--img modal-->
   <div id="imgModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <h4>Imagem</h4>
-
+    <div class="modal-content text-center">
+      <h4 class="mt-5 mb-5">Escolhe a Imagem</h4>
       <div class="container" id="imgContainer"></div>
       <div class="row pabaixo">
         <div class="col-md-3" style="text-align:center;">
         </div>
-        <div class="col-md-6" style="text-align:center;">
+        <div class="col-md-6 mb-3 mt-4" style="text-align:center;">
           <button id="btnLeave" type="button" class="btn btn-primary">Sair</button>
         </div>
         <div class="col-md-3" style="text-align:center;">
@@ -136,21 +141,7 @@
       </div>
     </div>
   </div>
-  <script src="../views/user.js" type="module"></script>
-  <script src="../controllers/userController.js" type="module"></script>
-  <script src="..models/userModel.js" type="module"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
 </body>
-
 </html>
 
 <style>

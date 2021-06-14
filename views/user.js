@@ -27,9 +27,8 @@ if (user) {
     renderUser(info)
     const btnLogOut = document.getElementById("btnLogOut");
     btnLogOut.addEventListener("click", function () {
-
         sessionStorage.clear();
-        location.href = "/index.html"
+        location.href = "../index.html"
     })
 
     //verifica se é admin, se for ao clicar no botão entra na area admin
@@ -65,7 +64,7 @@ if (user) {
                 alterUser(user, name, date, email)
                 //altera informação do user
                 sessionStorage.setItem("user", name)
-                location.href = "/perfil.html"
+                location.reload();
 
 
             },
@@ -84,10 +83,10 @@ if (user) {
     })
 
 
-    //no caso do user não estar loginado
+    //no caso do user não estar logged
 } else {
     console.log("error is coming from user.js");
-    alert("user not loged in!");
+    alert("user not logged in!");
     //location.href = "/index.html"
 }
 
@@ -121,14 +120,9 @@ function renderImg() {
     //fazer as imagens clicaveis e que alterem a foto de perfil
     for (const image of images) {
         image.addEventListener("click", function () {
-
             let link = this.getAttribute("src")
             alterPhoto(user, link)
-
-            location.href = "/perfil.html"
+            location.reload();
         })
     }
-
-
-
 }

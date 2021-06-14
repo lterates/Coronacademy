@@ -9,7 +9,5 @@ export default class User {
         this.email = email
         this.entidade = entidade
         this.currentQuest = 0
-
     }
-  
 }

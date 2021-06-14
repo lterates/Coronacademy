@@ -13,14 +13,10 @@ if (localStorage.users) {
     users = JSON.parse(localStorage.users)
 } else {
     // Só vai entrar aqui a primeira vez que o site é iniciado
-
-    const user1 = new User("joao", "06-02-2005", "../imagens/userPear.jpg", 10, "pass123", "joaoputo@gmail.com", "criança")
-    const user2 = new User("ana", "31-02-2003", "../imagens/userApple.jpg", 1, "pass1235", "anafixe@gmail.com", "criança")
-    const user3 = new User("mika", "06-09-1997", "../imagens/userFish.png", 1, "passPro", "joaoadmin@gmail.com", "admin")
-    const user4 = new User("maria", "29-03-1999", "../imagens/userBird.png", 1, "passProfixe", "mariaadmin@gmail.com", "admin")
-    const user5 = new User("max","06-02-2005","../imagens/userPear.jpg",12, "pass123","max@gmail.com","criança")
-
-    users.push(user1, user2, user3, user4,user5)
+    const user1 = new User("Edu", "26-09-1997", "../imagens/userPear.jpg", 10, "admin123", "eduardoFerreira@gmail.com", "admin")
+    const user2 = new User("Tico", "15-02-1997", "../imagens/userApple.jpg", 2, "password123", "anafixe@gmail.com", "criança")
+    const user3 = new User("Maria", "29-03-1999", "../imagens/userBird.png", 8, "passProfixe", "mariaadmin@gmail.com", "admin")
+    users.push(user1, user2, user3)
     localStorage.setItem("users", JSON.stringify(users))
 }
 
@@ -30,15 +26,15 @@ if (localStorage.photos) {
 } else {
     // Só vai entrar aqui a primeira vez e passa esta informação para a localstorage
 
-    const photo1 = new Photo("apple","../imagens/userApple.jpg")
-    const photo2 = new Photo("pear","../imagens/userPear.jpg")
-    const photo3 = new Photo("bird","../imagens/userBird.png")
-    const photo4 = new Photo("fish","../imagens/userFish.png")
-    const photo5 = new Photo("turtle","../imagens/turtle.png")
-    const photo6 = new Photo("unifish","../imagens/unifish.png")
-    const photo7 = new Photo("shark","../imagens/shark.png")
-    const photo8 = new Photo("fishmania","../imagens/fishmania.png")
-    const photo9 = new Photo("tropical","../imagens/tropical.png")
+    const photo1 = new Photo("Apple","../assets/User1.png")
+    const photo2 = new Photo("pear","../assets/User2.png")
+    const photo3 = new Photo("bird","../assets/User3.png")
+    const photo4 = new Photo("fish","../assets/User4.png")
+    const photo5 = new Photo("turtle","../assets/User5.png")
+    const photo6 = new Photo("unifish","../assets/User6.png")
+    const photo7 = new Photo("shark","../assets/User7.png")
+    const photo8 = new Photo("fishmania","../assets/User8.png")
+    const photo9 = new Photo("tropical","../assets/User9.png")
 
     photos.push(photo1, photo2, photo3,photo4,photo5,photo6,photo7,photo8,photo9)
     localStorage.setItem("photos", JSON.stringify(photos))
@@ -68,16 +64,16 @@ export function addUser(txtName, txtData, txtPassword, txtEmail) {
     }
     if (!existUser) {
         //faz push para a local storage dos dados do user e adiciona ao array
-        users.push(new User(txtName, txtData, "../imagens/userPear.jpg", 1, txtPassword, txtEmail, "criança"))
+        users.push(new User(txtName, txtData, "../assets/User1.png", 1, txtPassword, txtEmail, "criança"))
         localStorage.setItem("users", JSON.stringify(users))
-        alert(`User ${txtName} adicionada!`)
+        alert(`Novo Utilizador ${txtName}!`)
         //depois de criado, volta para a pagina inicial
-        location.href = "/index.html"
+        location.reload()
     } else {
-        alert(`User ${txtName} já existe!`)
+        alert(`Utilizador ${txtName} já existe!`)
     }
 }
-//funçao que ira verificar se a informaçao dada pelo utilizador esta certa e dara login se sim
+//funçao que irá verificar se a informaçao dada pelo utilizador esta certa e dara login se sim
 export function userLogin(txtName, txtPassword) {
     for (const user of users) {
         if (user.name === txtName) {
@@ -85,7 +81,6 @@ export function userLogin(txtName, txtPassword) {
                 return 1
             }
         }
-
     }
     return 0
 }
@@ -201,7 +196,6 @@ export function alterPhoto(txtName, photo) {
 }
 
 //função que devolve todas as fotos de perfil
-
 export function getPhotos(){
     let photoArray = []
         for (const photo of photos) {

@@ -26,24 +26,21 @@ const inputSugest = document.getElementById("inputSugest")
 const btnSend = document.getElementById("btnSend")
 
 
-//verificar se o utilizador econtra se logado senão envia o de volta para o menu inicial
+//verificar se o utilizador se encontra logged senão envia-o de volta para o menu inicial
 if (user) {
     loadQuestion();
-
-
-    //log out da conta
-    userName.innerText = user + " level:" + level;
+    userName.innerText = user + " Nível: " + level;
     btnCatalog.addEventListener("click", function(){
-        location.href= "/HTML/choose.html"
+        location.href= "catalog.html"
     })
-
     btnLogOut.addEventListener("click", function () {
         sessionStorage.clear();
         location.href = "../index.html"
     })
+    //log out da conta
 } else {
-    alert("user not loged in!");
-    location.href = "/"
+    alert("O utilizador não tem sessão iniciada!");
+    location.href = "../index.html"
 }
 //funçao que carrega as perguntas
 function loadQuestion() {
@@ -122,11 +119,11 @@ function loadQuestion() {
 
 //button de restart quizz
 btnRetry.addEventListener("click", function () {
-    location.href = "../HTML/quizz.html"
+    location.reload()
 })
 //button de sair do quizz para o menu inicial
 btnLeave.addEventListener("click", function () {
-    location.href = "/HTML/indexLog.html"
+    location.href = "/indexLogged.html"
 })
 //funçao que corre quando o utilizador perde
 function lose(exp, cont) {
