@@ -3,5 +3,4 @@ export default class Sugestion {
         this.user = user
         this.sugestion = sugestion
     }
-
 }

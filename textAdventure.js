@@ -71,7 +71,7 @@ function updateFinalExp(option) {
 //e atribuem o step seguinte do jogo
 const textNodes = [{
         id: 1,
-        text: 'Tu acordas com muiiiito sono, mas pronto para outro dia de escola. Estás a preparar a mochila e em cima da mesa está o teu lanche, uma garrafa de água e um frasquinho de desinfetante.',
+        text: 'Acordas com muito sono, mas pronto(a) para outro dia de escola. Estás a preparar a mochila e em cima da mesa está o teu lanche, uma garrafa de água e um frasco de álcool desinfetante.',
         options: [{
                 text: 'Colocar tudo na mochila',
                 setState: {

@@ -1,5 +1,5 @@
 //import de todas as funçoes necessarias de catalogController
-import { createCard, getCardInfo, writeComment, getComments, saveLike, verifyLike, getTags, writeTag, countTags, getTagsUser,createCardSort } from "../controllers/catalogController.js";
+import { createCard, getCardInfo, writeComment, getComments, saveLike, verifyLike, getTags, writeTag, countTags, getTagsUser,createCardSort, countComments } from "../controllers/catalogController.js";
 
 //ir buscar a sessionstorage o user atual e o seu nivel
 const user = sessionStorage.getItem('user');
@@ -69,6 +69,8 @@ if (user) {
 //função que abre a modal da informação das cartas
 function openModal(id) {
   let cardInfo = getCardInfo(id);
+  let cont = countComments(id)
+  console.log("PILA RALADA:" + cont)
   let canLike = verifyLike(id, user);
   //verifica se o utilzador ja deu like ou nao se ja o icon do like muda de cor para simbolizar que ja foi clicado
   if(canLike){
@@ -87,7 +89,7 @@ function openModal(id) {
         '<i id="heart" class="fas fa-heart fa-2x" style:"text-align:right">' + cardInfo[4] + '</i>' +
         '</div>' +
         '<div class ="col-md-2" id="btnComment">' +
-        '<i  class="fas fa-comment fa-2x">' + cardInfo[5] + '</i>' +
+        '<i  class="fas fa-comment fa-2x">' + cont + '</i>' +
         '</div>' +
         '<div class ="col-md-2" id="btnTag">' +
         '<i  class="fas fa-tags fa-2x">'+countTags(id, user)+'</i>' +
@@ -96,11 +98,8 @@ function openModal(id) {
         '</div>' +
         '</div>' +
         '</div>',
-      preConfirm: () => {
-  
-  
+      preConfirm: () => {  
       },
-  
       allowOutsideClick: () => !swal.isLoading()
     })
   }else{
@@ -119,7 +118,7 @@ function openModal(id) {
         '<i id="heart" class="fas fa-heart fa-2x" style=" color:#f45f42">' + cardInfo[4] + '</i>' +
         '</div>' +
         '<div class ="col-md-2" id="btnComment">' +
-        '<i  class="fas fa-comment fa-2x">' + cardInfo[5] + '</i>' +
+        '<i  class="fas fa-comment fa-2x">' + cont + '</i>' +
         '</div>' +
         '<div class ="col-md-2" id="btnTag">' +
         '<i  class="fas fa-tags fa-2x">'+countTags(id, user)+'</i>' +

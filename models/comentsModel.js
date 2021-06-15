@@ -3,9 +3,5 @@ export default class Comment {
         this.comment = comment
         this.cardId = cardId
         this.userName = userName
-        
-        
-
     }
-  
 }

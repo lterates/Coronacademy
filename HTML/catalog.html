@@ -17,7 +17,6 @@
     <script src="../controllers/catalogController.js" type="module"></script>
     <script src="../models/catalogModel.js" type="module"></script>
     <script src="../views/catalog.js" type="module"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
 
 </head>
@@ -40,18 +39,18 @@
                         </select></li>
                     <li id="busca" style="padding-right: 2vw; margin-top:0.8vw">
                         <form action="/search" class="search" method="get">
-                            <input id="txtbusca" name="q" type="text" value="" placeholder="Pesquisa..." /
+                            <input id="txtbusca" name="q" type="text" value="" placeholder="Pesquisa..."
                                 style="height: 37px; max-width: 150px;">
                             <button id="btnBusca" type="button" class="btn btn-warning">OK</button>
                         </form>
                     </li>
                     <li class="nav-item py-2" style="padding-right: 2vw;">
                         <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
-                            Learn+
+                            Aprender+
                         </a>
                     </li>
                     <li class="nav-item py-2" style="padding-right: 2vw;">
-                        <a href="#" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+                        <a href="quizz.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
                             Quiz
                         </a>
                     </li>
@@ -86,8 +85,6 @@
                     </div>
                 </div>
                 <div id="cardContainer" class="row">
-
-
                 </div>
             </div>
             <!--tag modal-->
@@ -101,9 +98,7 @@
                     <div style="text-align:center;">
                         <button id="addTag" type="button" class="btn btn-primary">Adicionar</button>
                     </div>
-
                 </div>
-
             </div>
             <!--comments modal-->
             <div id="commentModal" class="modal">
@@ -116,15 +111,11 @@
 
                     <div style="text-align:center;">
                         <button id="comentar" type="button" class="btn btn-primary">Comentar</button>
-
-
                     </div>
-
                 </div>
-
             </div>
-
 </body>
+
 <style>
     body {
         background-image: url("../assets/Background.png");

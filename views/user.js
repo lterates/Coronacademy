@@ -14,7 +14,6 @@ const userData = document.getElementById("userData")
 const userEmail = document.getElementById("userEmail")
 const userExp = document.getElementById("userExp")
 const userLevel = document.getElementById("userLevel")
-const userTextExp = document.getElementById("userTextExp")
 const imgModal = document.getElementById("imgModal")
 const imgContainer = document.getElementById("imgContainer")
 const btnLeave = document.getElementById("btnLeave")
@@ -100,14 +99,9 @@ function renderUser(info) {
     userEmail.innerHTML = info[3]
 
     document.querySelector("#expProgress").setAttribute("aria-valuenow", info[4])
-    document.querySelector("#expTextProgress").setAttribute("aria-valuenow", info[5])
     let progress = (info[4] / 100) * 100;
-    let progress2 = (info[5] / 100) * 100;
     userExp.innerHTML = info[4] + "/100 Exp"
-    userTextExp.innerHTML = info[5] + "/100 Exp"
-    console.log(info[5]);
     document.querySelector("#expProgress").setAttribute("style", "width:" + progress + "%")
-    document.querySelector("#expTextProgress").setAttribute("style", "width:" + progress2 + "%")
 
 }
 //renderizar as fotos de perfil na modal
