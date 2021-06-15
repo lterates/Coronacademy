@@ -15,9 +15,14 @@ renderUsers()
 function renderUsers(){
     let users = returnAllUsers()
     let txt = ""
-    if (pageLoaded == "/html/quizz.html" || pageLoaded == "/html/textAdventure.html") {
+    if (pageLoaded == "/html/quizz.html") {
         for(let i = 0; i<users.length; i++){
-            txt += `<li class ="list-group-item gat">${users[i].name} || Nível: ${users[i].nivel} || Exp: ${users[i].textExp}</li>`
+            txt += `<li class ="list-group-item gat">${users[i].name} || Nível: ${users[i].nivel} || Exp: ${users[i].exp}</li>`
+        }
+    }
+    else if (pageLoaded == "/html/textAdventure.html"){
+        for(let i = 0; i<users.length; i++){
+            txt += `<li class ="list-group-item gat">${users[i].name} ||  Exp: ${users[i].textExp}</li>`
         }
     }
     else {
