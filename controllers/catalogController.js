@@ -24,7 +24,7 @@ if (localStorage.cartas) {
     const carta6 = new Carta("Sobre estar doente", 6, "../assets/sick.png", "A maioria das pessoas que contraem a COVID-19 tem sintomas ligeiros a moderados e recupera sem necessitar de tratamento especial.")
     const carta7 = new Carta("Proteger os outros", 7, "../assets/grandparents.png", "Cumprir as normas é importante não só por nós, mas também pelos outros que, como os nosso avós, podem ficar mais doentes do que nós.")
     const carta8 = new Carta("Animais e o corona-virus", 8, "../assets/dog.png", "Cães e gatos podem contrair um coronavírus próprio das suas espécies. Ele nada tem a ver com a Covid-19 e não é transmitido para o ser humano.")
-    const carta9 = new Carta("Tubarão Cauda Vermelha", 9, "../imagens/bicolor.jpg", "Embora seja muito comum na Tailândia, acredita-se que está extinto no seu ambiente natural e é apenas criado em cativeiro.")
+    const carta9 = new Carta("Sobre o distanciamento", 9, "../assets/distancing.png", "Recomenda-se manter a distância física (um mínimo de um ou, idealmente, dois metros) em relação às outras pessoas em locais públicos e evitar grandes aglomerados de pessoas para reduzir o risco de infeção através das gotículas respiratórias.")
 
     cartas.push(carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8,carta9)
     localStorage.setItem("cartas", JSON.stringify(cartas))
