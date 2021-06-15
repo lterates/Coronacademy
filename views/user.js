@@ -28,7 +28,6 @@ console.log(pageLoaded)
 if (user) {
     renderUser(info)
     const btnLogOut = document.getElementById("btnLogOut");
-    btnAdmin.style.display = "none"
     btnLogOut.addEventListener("click", function () {
         sessionStorage.clear();
         location.href = "../index.html"

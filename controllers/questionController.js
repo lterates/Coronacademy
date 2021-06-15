@@ -25,11 +25,11 @@ if (localStorage.questions) {
     const question16 = new Question(16, "A perda do olfato é um possível sintoma de COVID-19?", "Sim$Não$Só se tiver mais de 60 anos$Só se tiver menos de 60 anos", "Sim", 4)
     const question17 = new Question(17, "Se tiver sintomas, posso ir à escola?", "Sim$Não, devo ficar em casa e ligar para o SNS 24$Posso mas com máscara$Posso mas com autorização dos pais", "Não, devo ficar em casa e ligar para o SNS 24", 5)
     const question18 = new Question(18, "É possível transmitir o vírus mesmo sem sintomas?", "Sim$Não$Só se não usar máscara$Sim, através do olhar", "Sim", 5)
-    const question19 = new Question(19, "Se os meus amigos ficarem infetados, devo:", "Chamar-lhes nomes$Ficar em isolamento, porque posso também estar infetado(a)$Fugir deles$Ter medo de voltar a falar com eles", "Ficar em isolamento, porque posso também estar infetado(a)", 5)
+    const question19 = new Question(19, "Se os meus amigos ficarem infetados, devo:", "Chamar-lhes nomes$Ficar em isolamento, posso também estar infetado(a)$Fugir deles$Ter medo de voltar a falar com eles", "Ficar em isolamento, porque posso também estar infetado(a)", 5)
     const question20 = new Question(20, "A perda do paladar é um possível sintoma de COVID-19?", "Sim$Não$Só se tiver mais de 60 anos$Só se tiver menos de 60 anos", "Sim", 5)
     const question21 = new Question(21, "Se tiver alguns sintomas de COVID-19, devo:", "Tomar medicação sozinho(a)$Ficar em isolamento em casa e ligar para o SNS 24$Não fazer nada e esperar que passe$Ir na mesma à escola, visto que não me devo preocupar", "Ficar em isolamento em casa e ligar para o SNS 24", 6)
     const question22 = new Question(22, "Qual dos seguintes não é um sintoma de COVID-19?", "Febre$Tosse$Esquecer do trabalho de casa$Dor muscular", "Esquecer do trabalho de casa", 6)
-    const question23 = new Question(23, "O que é a imunidade de grupo?", "Quando pessoas do mesmo grupo se portam da mesma forma$Quando toda a gente já esteve doente$Quando todos são vacinados$Quando todos criam uma resistência natural ao vírus", "Quando todos criam uma resistência natural ao vírus", 6)
+    const question23 = new Question(23, "O que é a imunidade de grupo?", "Quando pessoas do mesmo grupo estão infetadas$Quando toda a gente já esteve doente$Quando todos são vacinados$Quando todos criam uma resistência natural ao vírus", "Quando todos criam uma resistência natural ao vírus", 6)
     const question24 = new Question(24, "Durante quanto tempo devemos lavar as nossas mãos?", "Não devemos lavar as mãos!$20 segundos$1 hora$1 Minuto", "20 segundos", 6)
     const question25 = new Question(25, "Durante quanto tempo é possível estar infetado sem saber?", "Até 2 dias$Até 1 mês$Entre 2 dias e 2 semanas$Entre 5 dias e 1 mês", "Entre 2 dias e 2 semanas", 7)
     const question26 = new Question(26, "Durante quanto tempo pode o vírus sobreviver numa superfície?", "Alguns minutos$Algumas horas$Alguns segundos$Alguns dias", "Alguns dias", 7)
@@ -82,13 +82,11 @@ export function alterQuest(quizz, newQuizz, ans1, ans2, ans3, ans4, corAns) {
             question.answers = ans1 + "$" + ans2 + "$" + ans3 + "$" + ans4
             question.correctAnswer = corAns
             localStorage.setItem("questions", JSON.stringify(questions))
-
         }
     }
 }
 
 //funçao que adiciona uma pergunta nova
-
 export function addQuest(quizz, ans1, ans2, ans3, ans4, corAns) {
     const id = questions[questions.length - 1].id + 1;
     const question1 = new Question(id, quizz, ans1 + "$" + ans2 + "$" + ans3 + "$" + ans4, corAns, 1)
@@ -97,11 +95,10 @@ export function addQuest(quizz, ans1, ans2, ans3, ans4, corAns) {
 }
 
 //função que remove uma pergunta
-
 export function removeQuest(quizz) {
     for (const question of questions) {
         if (question.question == quizz) {          
-            var index = questions.indexOf(question);
+            let index = questions.indexOf(question);
             //se uma pergunta for selecionada, apagar
             if (index !== -1) questions.splice(index, 1);
 

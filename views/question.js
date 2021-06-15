@@ -17,7 +17,6 @@ const btnC = document.getElementById("btnC");
 const btnD = document.getElementById("btnD");
 const failModal = document.getElementById("failModal")
 const btnRetry = document.getElementById("btnRetry")
-const btnLeave = document.getElementById("btnLeave")
 const txtCorrect = document.getElementById("quantCorrect")
 const expGained = document.getElementById("expGain")
 const levelModal = document.getElementById("levelModal")
@@ -27,7 +26,6 @@ const endModal = document.getElementById("endModal")
 const inputSugest = document.getElementById("inputSugest")
 const btnSend = document.getElementById("btnSend")
 const userName = document.getElementById("userName")
-
 
 //verificar se o utilizador se encontra logged senão envia-o de volta para o menu inicial
 if (user) {
@@ -63,16 +61,19 @@ function loadQuestion() {
     let curQuest = sessionStorage.getItem("curQuest");
     cont = curQuest;
     let quests = setQuestion(level);
+    console.log("curQuest " + cont)
+    console.log("questsLength " + quests.length)
+
 
     let parts = [];
 
     //se todas as questoes forem respondidas apresenta esta modal para enviar sugestoes
-    if(quests[curQuest] == quests.length){
+    if(cont == quests.length){
         endModal.style.display ="block"
         btnSend.addEventListener("click",function(){
             let text = inputSugest.value
             sendSugest(user, text);
-            location.href = "/HTML/utilizador.html"
+            location.href = "/HTML/perfil.html"
 
         })
     }else{
@@ -128,10 +129,6 @@ function loadQuestion() {
 //button de restart quizz
 btnRetry.addEventListener("click", function () {
     location.reload()
-})
-//button de sair do quiz para o menu inicial
-btnLeave.addEventListener("click", function () {
-    location.href = "html/indexLogged.html"
 })
 //funçao que corre quando o utilizador perde
 function lose(exp, cont) {

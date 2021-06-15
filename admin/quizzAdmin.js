@@ -1,4 +1,4 @@
-import { getAllQuizz , getQuizzInfo, alterQuest, addQuest, removeQuest} from "../js/controllers/questionController.js";
+import { getAllQuizz , getQuizzInfo, alterQuest, addQuest, removeQuest} from "../controllers/questionController.js";
 
 const quizzList = document.getElementById("quizzList")
 const quest = document.getElementById("quest")
@@ -9,16 +9,10 @@ const ans4 = document.getElementById("ans4")
 const btnAlter = document.getElementById("btnAlter")
 const btnCreate = document.getElementById("btnCreate")
 const btnRemove = document.getElementById("btnRemove")
-const btnBack = document.getElementById("btnBack")
 const A = document.getElementById("A")
 const B = document.getElementById("B")
 const C = document.getElementById("C")
 const D = document.getElementById("D")
-
-
-btnBack.addEventListener("click", function () {
-    location.href="../HTML/utilizador.html"
-})
 
 let quizzes = getAllQuizz()
 
@@ -48,34 +42,28 @@ btnRemove.addEventListener("click", function(){
 //carregas as quests existentes na local storage
 function renderQuizz() {
     let txt = ""
-
     for (let i = 0; i < quizzes.length; i++) {
         txt += `<li class ="list-group-item gat">${quizzes[i].question}</li>`
     }
     quizzList.innerHTML = txt
-
     let names = document.getElementsByClassName("gat");
     //fazer as cartas clicaveis e que abram uma modal
     for (const name of names) {
         name.addEventListener("click", function () {
-
             //this.style.background-color = "#12bbad"
             for (const name of names) {
                 name.style.backgroundColor = "white"
             }
-            this.style.backgroundColor = "#12bbad"
+            this.style.backgroundColor = "#ffa500"
             fillQUizz(this.innerText)
-
-
         })
     }
 }
+
 //prencher o form com a informaçao da questao selecionada
 function fillQUizz(name){
     let info = getQuizzInfo(name)
-
     let parts = info.split("$")
-
     quest.value = parts[0]
     ans1.value = parts[1]
     ans2.value = parts[2]
@@ -91,9 +79,6 @@ function fillQUizz(name){
         D.checked = true;
     }
 
-    
-
-
     btnAlter.addEventListener("click", function(){
         let cor;
         if(A.checked){
@@ -106,5 +91,7 @@ function fillQUizz(name){
             cor = ans4.value
         }
         alterQuest(parts[0], quest.value, ans1.value, ans2.value, ans3.value, ans4.value, cor)
+        console.log("ALTERADO")
+        alert("Pergunta Alterada!")
     })
 }

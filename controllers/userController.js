@@ -199,7 +199,6 @@ export function alterUserAdmin(txtName, email, password, entity) {
 }
 
 //função que altera a foto do utilizador
-
 export function alterPhoto(txtName, photo) {
     for (const user of users) {
         if (user.name == txtName) {

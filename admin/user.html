@@ -4,58 +4,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+  <title>Coronacademy BackOffice</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container"> <a class="navbar-brand" href="../HTML/indexLogged.html">
-        <i class="fa d-inline fa-lg fa-circle-o"></i>
-        <b> Fish Mania</b>
-      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
-        data-target="#navbar17">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar17">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="/admin/quizzManager.html">Quizz</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/admin/entity.html">Entity</a> </li>
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
+    <div class="container ">
+      <!-- Brand -->
+      <a class="navbar-brand" href="../html/indexLogged.html">
+        <strong>Coronacademy Backoffice</strong>
+      </a>
+      <!-- Links -->
+      <div style="margin-right: 2vw;">
+        <ul class="navbar-nav">
+          <li class="nav-item py-2" style="padding-right: 2vw;">
+            <a href="entity.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Gerir Entidades
+            </a>
+          </li>
+          <li class="nav-item py-2" style="padding-right:2vw;">
+            <a href="quizzManager.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+              Gerir Quiz
+            </a>
+          </li>
         </ul>
-        <a class="btn btn-outline-light navbar-btn ml-md-2" id ="btnBack">Back<br></a>
       </div>
     </div>
-  </nav>
-  <div class="py-5" style="">
+  </nav>  
+
+  <!--CONTEÚDO-->
+  <div id="content" class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="col-md-12">
-            <ul id="userList"class="list-group">
-              
+          <div class="col-md-8">
+            <ul id="userList" class="list-group shadow-lg">
             </ul>
           </div>
         </div>
+        <!--RIGHT COLUMN-->
         <div class="col-md-6">
-          <div class="col-md-12">
-            <form class="">
-              <div class="form-group"> <label>Change email</label> <input id="userEmail" type="email" class="form-control"
-                  placeholder="Enter email"> <small class="form-text text-muted"></small> </div>
-              <div class="form-group"><label>Change password</label><input id="userPass" type="text" class="form-control"
-                  placeholder="Password"> </div>
-              <div class="form-group"><label>Permissions</label>
-                <div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input"
-                    id="customSwitch1"><label class="custom-control-label" for="customSwitch1">Admin<br></label></div>
+          <div class="col-md-12 shadow" style="background-color: #ffffffb0;">
+            <form class="p-4">
+              <div class="form-group"> <label>Email</label> <input id="userEmail" type="email" class="form-control"
+                  placeholder="Introduza Email..."> <small class="form-text text-muted"></small> </div>
+              <div class="form-group mt-4"><label>Password</label><input id="userPass" type="password" class="form-control"
+                  placeholder="Introduza Password..."> </div>
+              <div class="form-group mt-4"><label>Permissão:</label>
+                <div class="custom-control custom-switch mt-1"><input type="checkbox" class="custom-control-input"
+                    id="customSwitch1"><label class="custom-control-label ml-2 " for="customSwitch1">Admin<br></label></div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary mt-2" id="btnAlter">Alter<br></button>
+              <button type="submit" class="btn mt-4 shadow-sm" style="background-color: #ffa500; color: white;" id="btnAlter">Alterar<br></button>
             </form>
-            <div class= "row">
-              <div class="col-md-12">
-                  <label for="sugestList">Sugestions:</label> 
+
+            <div class= "row mt-5 shadow-sm">
+              <div class="col-md-12 p-5" style="background-color: #ffffffb0;">
+                  <label for="sugestList">Sugestões do Utilizador:</label> 
               <ul id="sugestList"class="list-group">
-              
               </ul>
             </div>
             </div>
@@ -68,5 +81,27 @@
   <script src="../controllers/userController.js" type="module"></script>
   <script src="../models/userModel.js" type="module"></script>
 </body>
-
 </html>
+
+<style>
+  body {
+  background-image: url("../assets/Background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #f7f4f8;
+  font-family: "Poppins";
+}
+
+strong {
+  color: #0C0746;
+  font-size: 2rem;
+  text-decoration: 5px underline solid orange;
+  font-family: "Poppins";
+}
+
+#content {
+  margin-top: 10vh;
+}
+</style>
