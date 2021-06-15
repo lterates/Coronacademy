@@ -16,6 +16,7 @@ btnCreate.addEventListener("click", function () {
         createNewCard(inputname.value, inputLink.value, inputDesc.value);
         renderEntity()
 })
+
 //remover carta selecionada
 btnRemove.addEventListener("click", function () {
     removeCard(inputname.value)

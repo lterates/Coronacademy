@@ -1,4 +1,4 @@
-import { returnAllUsers, adminInfo, alterUserAdmin, returnSugestion} from "../controllers/userController.js";
+import { returnAllUsers, adminInfo, alterUserAdmin, returnSugestion, /*deleteUser*/} from "../controllers/userController.js";
 
 const userList = document.getElementById("userList")
 const userEmail = document.getElementById("userEmail")
@@ -6,10 +6,17 @@ const userPass = document.getElementById("userPass")
 const userPerm = document.getElementById("customSwitch1")
 const btnAlter = document.getElementById("btnAlter")
 const sugestList = document.getElementById("sugestList");
+//const btnRemove = document.getElementById("btnRemove")
 
 let pageLoaded = window.location.pathname;
 console.log(pageLoaded)
 renderUsers()
+
+//remover carta selecionada
+/*btnRemove.addEventListener("click", function () {
+    deleteUser(inputname.value)
+    renderUsers()
+})*/
 
 //carregar os utilizadores na lista
 function renderUsers(){
@@ -43,7 +50,7 @@ function renderUsers(){
         fillUser(this.innerText);
       })
     }
-}
+}~
 
 //preenche o form com a informaçao do utilizador selecionado
 function fillUser(name){
