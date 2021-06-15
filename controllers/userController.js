@@ -176,7 +176,7 @@ export function alterUser(txtName, newName, data, email) {
                 user.name = newName
                 user.data = data
                 user.email = email
-                localStorage.setItem("users", JSON.stringify(users))
+                localStorage.setItem("users", JSON.stringify(user))
             } else {
                 alert(`User ${txtName} já existe!`)
             }
