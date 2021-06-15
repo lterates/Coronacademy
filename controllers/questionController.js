@@ -16,7 +16,7 @@ if (localStorage.questions) {
     const question7 = new Question(7, "Que tipo de máscaras devemos usar?", "Cirúrgicas$Máscaras de pano$Viseira é suficiente$Qualquer máscara", "Cirúrgicas", 2)
     const question8 = new Question(8, "COVID-19 é curável?", "Sim$Sim, mas o tratamento depende da gravidade$Não, nunca$Sim, facilmente", "Sim, mas o tratamento depende da gravidade", 2)
     const question9 = new Question(9, "Onde se pensa ter originado a Covid19?", "India$Europa$China$EUA", "China", 3)
-    const question10 = new Question(10, "Porque é que a COVID-19 originou uma pandemia?", "Porque é um vírus$Porque originou no Panamá$Porque infeta muita gente em muitos sítios ao mesmo tempo$Porque originou em 2019", "Porque infeta muita gente em muitos sítios ao mesmo tempo", 3)
+    const question10 = new Question(10, "Porque é que a COVID-19 originou uma pandemia?", "Porque é um vírus$Porque originou no Panamá$Porque é muito infeciosa$Porque originou em 2019", "Porque é muito infeciosa", 3)
     const question11 = new Question(11, "O que é o isolamento profilático?", "É quando te isolas por motivo nenhum$É isolar parte da tua casa$É isolares-te para prevenir o contágio$É ires morar para outro país", "É isolares-te para prevenir o contágio", 3)
     const question12 = new Question(12, "Quem pode terminar o isolamento profilático?", "A autoridade de saúde competente$A pessoa em si$A nossa mãe$Deus", "A autoridade de saúde competente", 3)
     const question13 = new Question(13, "A vacina contra a COVID-19 é obrigatória?", "A vacina é voluntária$Sim é obrigatória$Só para pessoas com menos de 30 anos$Só para pessoas com mais de 30 anos", "A vacina é voluntária", 4)

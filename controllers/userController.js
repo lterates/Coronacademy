@@ -13,9 +13,9 @@ if (localStorage.users) {
     users = JSON.parse(localStorage.users)
 } else {
     // Só vai entrar aqui a primeira vez que o site é iniciado
-    const user1 = new User("Edu", "26-09-1997", "../imagens/user5.png", 10, 1, "admin123", "eduardoFerreira@gmail.com", "admin")
-    const user2 = new User("Tico", "15-02-1997", "../imagens/user3.png", 2, 1, "password123", "anafixe@gmail.com", "criança")
-    const user3 = new User("Maria", "29-03-1999", "../imagens/user2.png", 8, 1, "passProfixe", "mariaadmin@gmail.com", "admin")
+    const user1 = new User("edu", "26-09-1997", "../assets/user5.png", 10, 1, "admin123", "eduardoFerreira@gmail.com", "admin")
+    const user2 = new User("tico", "15-02-1997", "../assets/user3.png", 2, 1, "password123", "anafixe@gmail.com", "criança")
+    const user3 = new User("maria", "29-03-1999", "../assets/user2.png", 8, 1, "passProfixe", "mariaadmin@gmail.com", "admin")
     users.push(user1, user2, user3)
     localStorage.setItem("users", JSON.stringify(users))
 }
@@ -124,7 +124,6 @@ export function addExp(txtName, exp, curQuest) {
 
             //insere a informação no array
             localStorage.setItem("users", JSON.stringify(users))
-
         }
     }
 }
@@ -151,8 +150,8 @@ export function userInfo(txtName) {
         }
     }
 }
-//função que devolve a info do user po admin (gestor de perfis)
 
+//função que devolve a info do user po admin (gestor de perfis)
 export function adminInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -165,7 +164,6 @@ export function adminInfo(txtName) {
 
 //funçao que altera a informaçao do utilizador
 //user.name = new name porque nunca podem haver 2 users iguais
-
 export function alterUser(txtName, newName, data, email) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -189,7 +187,6 @@ export function alterUser(txtName, newName, data, email) {
 }
 
 //funçao que altera a informaçao do utilizador pelo admin
-
 export function alterUserAdmin(txtName, email, password, entity) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -255,14 +252,13 @@ export function resetExp(txtName) {
         }
     }
 }
-//função pa ver se o user é admin
 
+//função pa ver se o user é admin
 export function checkUser(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
             if (user.entidade == "admin") {
                 return true
-
             } else {
                 return false
             }
