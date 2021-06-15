@@ -6,11 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Coronacademy</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+  <script src="../admin/userAdmin.js" type="module"></script>
+  <script src="../controllers/userController.js" type="module"></script>
+  <script src="../models/userModel.js" type="module"></script>
   <script src="../views/question.js" type="module"></script>
   <script src="../controllers/questionController.js" type="module"></script>
   <script type="module" src="../views/user.js"></script>
@@ -93,6 +95,14 @@
     </div>
     </div>
   </div>
+
+  <div class="col-md-4 mx-auto text-center shadow-lg" id="leaderboard">
+    <ul class="list-group" style="background-color: white;">Leaderboards</ul>
+    <ul id="userList" class="list-group shadow-lg">
+      Hello TEST
+    </ul>
+  </div>
+
    <!--MODAL DE PERDER-->
    <div id="failModal" class="modal">
     <!-- Modal content -->
@@ -178,6 +188,10 @@ body {
     font-size: 2rem;
     text-decoration: 5px underline solid orange;
     font-family: "Poppins";
+  }
+
+  #leaderboard {
+    margin-top: 8vh;
   }
 
   #content {

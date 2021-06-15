@@ -7,18 +7,25 @@ const userPerm = document.getElementById("customSwitch1")
 const btnAlter = document.getElementById("btnAlter")
 const sugestList = document.getElementById("sugestList");
 
+let pageLoaded = window.location.pathname;
+console.log(pageLoaded)
 renderUsers()
 
 //carregar os utilizadores na lista
 function renderUsers(){
     let users = returnAllUsers()
     let txt = ""
-
-    for(let i = 0; i<users.length; i++){
-        txt += `<li class ="list-group-item gat">${users[i].name}</li>`
+    if (pageLoaded == "/html/quizz.html") {
+        for(let i = 0; i<users.length; i++){
+            txt += `<li class ="list-group-item gat">${users[i].name} || Nível: ${users[i].nivel} || Exp: ${users[i].exp}</li>`
+        }
+    }
+    else {
+        for(let i = 0; i<users.length; i++){
+            txt += `<li class ="list-group-item gat">${users[i].name}</li>`
+        }
     }
     userList.innerHTML = txt
-
     let names = document.getElementsByClassName("gat");
     
     for (const name of names) {
