@@ -1,6 +1,11 @@
 const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 const finalPoints = document.getElementById('finalPoints')
+const btnLogout = document.getElementById('btnLogOut')
+btnLogout.addEventListener('click', function(){
+    location.href="../index.html"
+})
+
 
 import {
     addTextExp
