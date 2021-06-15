@@ -105,11 +105,7 @@ export function getQuest(txtName) {
 //função de atualizar o exp e a Question atual
 
 export function addExp(txtName, exp, curQuest) {
-
-
     for (const user of users) {
-
-
         if (user.name == txtName) {
             user.currentQuest = curQuest
             let ex = user.exp;
@@ -119,12 +115,11 @@ export function addExp(txtName, exp, curQuest) {
 
             //insere a informação no array
             localStorage.setItem("users", JSON.stringify(users))
-
         }
     }
 }
-//função que devolve a informaçao do utilizador (página de perfik)
 
+//função que devolve a informaçao do utilizador (página de perfil)
 export function userInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -134,8 +129,8 @@ export function userInfo(txtName) {
         }
     }
 }
-//função que devolve a info do user po admin (gestor de perfis)
 
+//função que devolve a info do user po admin (gestor de perfis)
 export function adminInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -148,7 +143,6 @@ export function adminInfo(txtName) {
 
 //funçao que altera a informaçao do utilizador
 //user.name = new name porque nunca podem haver 2 users iguais
-
 export function alterUser(txtName, newName, data, email) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -172,7 +166,6 @@ export function alterUser(txtName, newName, data, email) {
 }
 
 //funçao que altera a informaçao do utilizador pelo admin
-
 export function alterUserAdmin(txtName, email, password, entity) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -238,14 +231,13 @@ export function resetExp(txtName) {
         }
     }
 }
-//função pa ver se o user é admin
 
+//função pa ver se o user é admin
 export function checkUser(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
             if (user.entidade == "admin") {
                 return true
-
             } else {
                 return false
             }

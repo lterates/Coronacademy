@@ -1,4 +1,4 @@
-import { returnAllUsers, adminInfo, alterUserAdmin, returnSugestion} from "../js/controllers/userController.js";
+import { returnAllUsers, adminInfo, alterUserAdmin, returnSugestion} from "../controllers/userController.js";
 
 const userList = document.getElementById("userList")
 const userEmail = document.getElementById("userEmail")
