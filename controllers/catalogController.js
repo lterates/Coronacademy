@@ -302,11 +302,10 @@ export function getCard(txtName){
 
 
 //função que remove uma carta
-
 export function removeCard(txtName){
     for (const carta of cartas) {
         if(carta.name == txtName){
-            var index = cartas.indexOf(carta);
+            let index = cartas.indexOf(carta);
             if (index !== -1) cartas.splice(index, 1);
 
             localStorage.setItem("cartas", JSON.stringify(cartas))

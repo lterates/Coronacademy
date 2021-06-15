@@ -287,3 +287,14 @@ export function returnSugestion(user) {
         }
     }
 }
+
+export function deleteUser (name) {
+    for (const user of users) {
+        if(user.name == name){
+            let index = users.indexOf(user);
+            if (index !== -1) users.splice(index, 1);
+
+            localStorage.setItem("users", JSON.stringify(users))
+        }
+    }
+}
