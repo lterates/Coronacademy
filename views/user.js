@@ -21,6 +21,8 @@ const imgSlot = document.getElementById("imgSlot")
 const btnAdmin = document.getElementById("btnAdmin")
 
 let info = userInfo(user);
+let pageLoaded = window.location.pathname;
+console.log(pageLoaded)
 
 //logout, se o user clicar em log out a session storage apaga e volta ao index.html
 if (user) {
@@ -79,10 +81,9 @@ if (user) {
             imgModal.style.display = "none"
         })
     })
-
-
-    //no caso do user não estar logged
-} else {
+} else if (pageLoaded="/index.html") { //NO CASO DE ESTAR NA HOME PAGE E NÃO ESTAR LOGGED IN
+    console.log("User is on main page and not logged in")
+} else { //no caso do user não estar logged
     console.log("User is not Logged In -> user.js");
     alert("Não foi efetuado o Login!");
 }
