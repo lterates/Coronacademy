@@ -16,24 +16,24 @@ if (localStorage.cartas) {
     cartas = JSON.parse(localStorage.cartas)
 } else {
     // Só vai entrar aqui a primeira vez
-    const carta1 = new Carta("Peixe Palhaço", "Água Quente", 1, "../assets/vaccine.png", "OCELLARIS CLOWNFISH, é umas das 30 espécies conhecidas na sua familía e o peixe que deu origem ao personagem Nemo")
-    const carta2 = new Carta("Peixe Disco", "Água Quente", 2, "../assets/vaccine.png", "SYMPHYSODON DISCUS é um peixe de água doce quente que pode ser econtrado em rios na América do Sul.")
-    /*const carta3 = new Carta("Peixe Escalar", "Água Quente", 3, "../imagens/escalar.jpg", "É um peixe tropical muito comum na América do Sul podendo ser encontrado nas margens dos rios. É um peixe curioso, pois não apresenta cores vivas como a maioria dos peixes tropicais.")
-    const carta4 = new Carta("Peixe Espada", "Água Quente", 4, "../imagens/peixeEspada.jpg", "XIPHIAS GLADIUS,é uma espécie de grandes dimensões e barbatanas espinhosas que habita os mares tropicais")
-    const carta5 = new Carta("Espiga-Azul", "Água Quente", 5, "../imagens/dory.jpg", "Também conhecidos como Peixe-Cirurgião. É o peixe que deu origem à personagen Dory e, ao contrário do filme, é muito inteligente e pode até reconhecer o dono.")
-    const carta6 = new Carta("Cavalo-Marinho", "Água Quente", 6, "../imagens/cavalo.jfif", "É um peixe ósseo com uma forma muito particular. Quando um casal de cavalos-marinhos tem crias, o macho carrega os ovos.")
-    const carta7 = new Carta("Peixe-Balão", "Água Quente", 7, "../imagens/balao.jfif", "Peixe de água salgada, comum nos oceanos Pacifico e Indico. Embora os espinhos pareçam ser o maior perigo, a verdadeira ameaça é o veneno que este peixe carrega no figado.")
-    const carta8 = new Carta("Peixe-Abelha", "Água Quente", 8, "../imagens/abelha.jpg", "Pode ser encontrado na Tailândia e viver até aos 4 anos.")
-    const carta9 = new Carta("Tubarão Cauda Vermelha", "Água Quente", 9, "../imagens/bicolor.jpg", "Embora seja muito comum na Tailândia, acredita-se que está extinto no seu ambiente natural e é apenas criado em cativeiro.")
-    const carta10 = new Carta("Tetra-Negro", "Água Quente", 10, "../imagens/neon.jpg", "Nativo do rio Paraguai na América do Sul, é também conhecido como viúva-negra.")
-    const carta11 = new Carta("Zanclidae", "Água Quente", 11, "../imagens/idol.jpg", "Peixe preferido para aquário, embora tenha muita dificuldade em adaptar-se. Conhecido pelo personagem Gil em 'À Procura de Nemo'")
-    const carta12 = new Carta("Peixe-Leão", "Água Quente", 12, "../imagens/leao.jpg", "É um peixe natural do oceano Indico ou Pacifico, altamente venenoso que pode chegar a viver 15 anos.")*/
+    const carta1 = new Carta("Peixe Palhaço", 1, "../assets/vaccine.png", "OCELLARIS CLOWNFISH, é umas das 30 espécies conhecidas na sua familía e o peixe que deu origem ao personagem Nemo")
+    const carta2 = new Carta("Peixe Disco",2, "../imagens/vaccine.png", "SYMPHYSODON DISCUS é um peixe de água doce quente que pode ser econtrado em rios na América do Sul.")
+    /*const carta3 = new Carta("Peixe Escalar", 3, "../imagens/escalar.jpg", "É um peixe tropical muito comum na América do Sul podendo ser encontrado nas margens dos rios. É um peixe curioso, pois não apresenta cores vivas como a maioria dos peixes tropicais.")
+    const carta4 = new Carta("Peixe Espada",4, "../imagens/peixeEspada.jpg", "XIPHIAS GLADIUS,é uma espécie de grandes dimensões e barbatanas espinhosas que habita os mares tropicais")
+    const carta5 = new Carta("Espiga-Azul",5, "../imagens/dory.jpg", "Também conhecidos como Peixe-Cirurgião. É o peixe que deu origem à personagen Dory e, ao contrário do filme, é muito inteligente e pode até reconhecer o dono.")
+    const carta6 = new Carta("Cavalo-Marinho", 6, "../imagens/cavalo.jfif", "É um peixe ósseo com uma forma muito particular. Quando um casal de cavalos-marinhos tem crias, o macho carrega os ovos.")
+    const carta7 = new Carta("Peixe-Balão", 7, "../imagens/balao.jfif", "Peixe de água salgada, comum nos oceanos Pacifico e Indico. Embora os espinhos pareçam ser o maior perigo, a verdadeira ameaça é o veneno que este peixe carrega no figado.")
+    const carta8 = new Carta("Peixe-Abelha", 8, "../imagens/abelha.jpg", "Pode ser encontrado na Tailândia e viver até aos 4 anos.")
+    const carta9 = new Carta("Tubarão Cauda Vermelha", 9, "../imagens/bicolor.jpg", "Embora seja muito comum na Tailândia, acredita-se que está extinto no seu ambiente natural e é apenas criado em cativeiro.")
+    const carta10 = new Carta("Tetra-Negro", 10, "../imagens/neon.jpg", "Nativo do rio Paraguai na América do Sul, é também conhecido como viúva-negra.")
+    const carta11 = new Carta("Zanclidae",11, "../imagens/idol.jpg", "Peixe preferido para aquário, embora tenha muita dificuldade em adaptar-se. Conhecido pelo personagem Gil em 'À Procura de Nemo'")
+    const carta12 = new Carta("Peixe-Leão",12, "../imagens/leao.jpg", "É um peixe natural do oceano Indico ou Pacifico, altamente venenoso que pode chegar a viver 15 anos.")*/
 
     cartas.push(carta1, carta2/*, carta3, carta4, carta5, carta6, carta7, carta8,carta9,carta10,carta11,carta12*/)
-    localStorage.setItem("cards", JSON.stringify(cartas))
+    localStorage.setItem("cartas", JSON.stringify(cartas))
 }
 
-//Ir a base de dados buscar os comments ou cria los
+//Ir a base de dados buscar os comments ou cria los 
 if (localStorage.comments) {
     comments = JSON.parse(localStorage.comments)
 } else {
@@ -105,7 +105,7 @@ export function createCardSort(level, sort) {
     
                     let likeCont = countLikes(carta.id);
     
-                    div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/cardbg.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
+                    div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/vaccine.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
                 
                 start++;
             }
@@ -129,7 +129,7 @@ export function createCardSort(level, sort) {
     
                     let likeCont = countLikes(carta.id);
     
-                    div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/cardbg.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
+                    div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/vaccine.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
                 
                 start++;
             }
@@ -232,7 +232,7 @@ export function getCardInfo(id) {
             let cardInfo = [];
             const commentCount = countComments(carta.id)
             const likeCount = countLikes(carta.id)
-            cardInfo.push(carta.name, carta.descricao, carta.card, carta.categoria, likeCount, commentCount);
+            cardInfo.push(carta.name, carta.descricao, carta.card, likeCount, commentCount);
             return cardInfo
         }
     }
@@ -284,21 +284,21 @@ export function createNewCard(name,card, descricao){
     }
     localStorage.setItem("cartasF", JSON.stringify(cartasNew))
     
-    const cartaNova = new Carta(name,"Agua Quente", id, card,descricao)
+    const cartaNova = new Carta(name, id, card,descricao)
     cartas.push(cartaNova)
     
-    localStorage.setItem("cards", JSON.stringify(cartas))
+    localStorage.setItem("cartas", JSON.stringify(cartas))
 }
 
 //funçao que retorna todas as cartas
 
-export function getAllQ(){
+export function getAll(){
     return cartas
 }
 
 //função que retorna a informaçao de certa carta admin
 
-export function getCardQ(txtName){
+export function getCard(txtName){
     for (const carta of cartas) {
         if(carta.name == txtName){
             return carta
@@ -309,25 +309,25 @@ export function getCardQ(txtName){
 
 //função que remove uma carta
 
-export function removeCardQ(txtName){
+export function removeCard(txtName){
     for (const carta of cartas) {
         if(carta.name == txtName){
             var index = cartas.indexOf(carta);
             if (index !== -1) cartas.splice(index, 1);
 
-            localStorage.setItem("cards", JSON.stringify(cartas))
+            localStorage.setItem("cartas", JSON.stringify(cartas))
         }
     }
 }
 
 //funçao que altera a carta
-export function alterCardQ(cartaName, newCarta, desc, link) {
+export function alterCard(cartaName, newCarta, desc, link) {
     for (const carta of cartas) {
         if (carta.name == cartaName) {
             carta.name = newCarta   
             carta.descricao = desc
             carta.card = link
-            localStorage.setItem("cards", JSON.stringify(cartas))
+            localStorage.setItem("cartas", JSON.stringify(cartas))
 
         }
     }
