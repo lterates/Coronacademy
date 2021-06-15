@@ -4,8 +4,8 @@ export default class User {
         this.data = data
         this.photo = photo
         this.nivel = nivel
-        this.textNivel = textNivel
         this.exp = 0
+        this.textNivel = textNivel        
         this.textExp = 0
         this.password = password
         this.email = email

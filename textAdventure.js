@@ -2,10 +2,11 @@ const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 const finalPoints = document.getElementById('finalPoints')
 
-import User from "../models/userModel.js"
 import {
     addTextExp
 } from "../controllers/userController.js"
+
+const user = sessionStorage.getItem('user');
 
 //state do(s) obejtos que o user tenha
 let state = {}
@@ -16,7 +17,10 @@ let finalExp = 0;
 function startGame() {
     state = {}
     finalExp = 0;
+    finalPoints.innerText = "Experiência adquirida: " + finalExp + "/100";
+
     showTextNode(1)
+    
 }
 
 //funçao que faz o display das prompts de cada fase do jogo
@@ -48,13 +52,12 @@ function showOption(option) {
 function selectOption(option) {
     const nextTextNodeId = option.nextText
     if (nextTextNodeId <= 0) {
-        addTextExp(User, option.exp);
+        addTextExp(user, finalExp);
         return startGame()
     }
     state = Object.assign(state, option.setState)
     showTextNode(nextTextNodeId)
     updateFinalExp(option);
-
     finalPoints.innerText = "Experiência adquirida: " + finalExp + "/100";
     console.log(finalExp);
 }

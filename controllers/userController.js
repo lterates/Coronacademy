@@ -131,10 +131,9 @@ export function addExp(txtName, exp, curQuest) {
 export function addTextExp(txtName, exp) {
     for (const user of users) {
         if (user.name == txtName) {
-            let ex = user.textExp;
 
-            user.textExp = +ex + +exp;
-
+            user.textExp = exp;
+            console.log("adding Text Exp " + user.textExp);
             localStorage.setItem("users", JSON.stringify(users))
         }
     }
@@ -145,7 +144,7 @@ export function userInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
             let info = []
-            info.push(user.data, user.photo, user.nivel, user.email, user.exp)
+            info.push(user.data, user.photo, user.nivel, user.email, user.exp, user.textExp)
             return info
         }
     }
