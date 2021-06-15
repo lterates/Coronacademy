@@ -2,10 +2,11 @@ const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 const finalPoints = document.getElementById('finalPoints')
 
-import User from "../models/userModel.js"
 import {
     addTextExp
 } from "../controllers/userController.js"
+
+const user = sessionStorage.getItem('user');
 
 //state do(s) obejtos que o user tenha
 let state = {}
@@ -48,7 +49,7 @@ function showOption(option) {
 function selectOption(option) {
     const nextTextNodeId = option.nextText
     if (nextTextNodeId <= 0) {
-        addTextExp(User, option.exp);
+        addTextExp(user, finalExp);
         return startGame()
     }
     state = Object.assign(state, option.setState)

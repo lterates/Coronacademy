@@ -134,7 +134,7 @@ export function addTextExp(txtName, exp) {
             let ex = user.textExp;
 
             user.textExp = +ex + +exp;
-
+            console.log("adding Text Exp " + user.textExp);
             localStorage.setItem("users", JSON.stringify(users))
         }
     }
@@ -145,7 +145,7 @@ export function userInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
             let info = []
-            info.push(user.data, user.photo, user.nivel, user.email, user.exp)
+            info.push(user.data, user.photo, user.nivel, user.email, user.exp, user.textExp)
             return info
         }
     }
