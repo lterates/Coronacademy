@@ -18,13 +18,8 @@ btnCreate.addEventListener("click", function () {
 })
 //remover carta selecionada
 btnRemove.addEventListener("click", function () {
-    if (a.checked) {
-        removeCard(inputname.value)
-        renderEntity()
-    } else if (b.checked) {
-        removeCard(inputname.value)
-        renderEntity()
-    }
+    removeCard(inputname.value)
+    renderEntity()
 })
 
 

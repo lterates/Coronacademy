@@ -268,7 +268,7 @@ export function writeTag(cardId, text, userName) {
 
 export function createNewCard(name,card, descricao){
     const id = cartas[cartas.length - 1].id + 1;
-    let nums = JSON.parse(localStorage.getItem("cartasF"))
+    let nums = JSON.parse(localStorage.getItem("cartas"))
     
     let cartasNew = []
     for (const num of nums) {
@@ -276,7 +276,7 @@ export function createNewCard(name,card, descricao){
         
         cartasNew.push(num)
     }
-    localStorage.setItem("cartasF", JSON.stringify(cartasNew))
+    localStorage.setItem("cartas", JSON.stringify(cartasNew))
     
     const cartaNova = new Carta(name, id, card,descricao)
     cartas.push(cartaNova)
