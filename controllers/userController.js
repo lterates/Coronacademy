@@ -26,17 +26,17 @@ if (localStorage.photos) {
 } else {
     // Só vai entrar aqui a primeira vez e passa esta informação para a localstorage
 
-    const photo1 = new Photo("user1","../assets/User1.png")
-    const photo2 = new Photo("user2","../assets/User2.png")
-    const photo3 = new Photo("user3","../assets/User3.png")
-    const photo4 = new Photo("user4","../assets/User4.png")
-    const photo5 = new Photo("user5","../assets/User5.png")
-    const photo6 = new Photo("user6","../assets/User6.png")
-    const photo7 = new Photo("user7","../assets/User7.png")
-    const photo8 = new Photo("user8","../assets/User8.png")
-    const photo9 = new Photo("user9","../assets/User9.png")
+    const photo1 = new Photo("user1", "../assets/User1.png", 1)
+    const photo2 = new Photo("user2", "../assets/User2.png", 1)
+    const photo3 = new Photo("user3", "../assets/User3.png", 2)
+    const photo4 = new Photo("user4", "../assets/User4.png", 2)
+    const photo5 = new Photo("user5", "../assets/User5.png", 3)
+    const photo6 = new Photo("user6", "../assets/User6.png", 3)
+    const photo7 = new Photo("user7", "../assets/User7.png", 4)
+    const photo8 = new Photo("user8", "../assets/User8.png", 4)
+    const photo9 = new Photo("user9", "../assets/User9.png", 4)
 
-    photos.push(photo1, photo2, photo3,photo4,photo5,photo6,photo7,photo8,photo9)
+    photos.push(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9)
     localStorage.setItem("photos", JSON.stringify(photos))
 }
 
@@ -47,7 +47,7 @@ if (localStorage.sugestions) {
     // Só vai entrar aqui a primeira vez
 
     const sugestion1 = new Sugestion("joao", "carta da baleia azul")
-    
+
     sugestions.push(sugestion1)
     localStorage.setItem("sugestions", JSON.stringify(sugestions))
 }
@@ -111,14 +111,14 @@ export function addExp(txtName, exp, curQuest) {
 
 
         if (user.name == txtName) {
-                user.currentQuest = curQuest
-                let ex = user.exp;
-                
-                //experiencia que já tinha + a adquirida
-                user.exp = +ex + +exp;
+            user.currentQuest = curQuest
+            let ex = user.exp;
 
-                //insere a informação no array
-                localStorage.setItem("users", JSON.stringify(users))
+            //experiencia que já tinha + a adquirida
+            user.exp = +ex + +exp;
+
+            //insere a informação no array
+            localStorage.setItem("users", JSON.stringify(users))
 
         }
     }
@@ -136,7 +136,7 @@ export function userInfo(txtName) {
 }
 //função que devolve a info do user po admin (gestor de perfis)
 
-export function adminInfo(txtName){
+export function adminInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
             let info = []
@@ -166,16 +166,16 @@ export function alterUser(txtName, newName, data, email) {
             } else {
                 alert(`User ${txtName} já existe!`)
             }
-           
+
         }
     }
 }
 
 //funçao que altera a informaçao do utilizador pelo admin
 
-export function alterUserAdmin(txtName, email, password, entity){
-    for(const user of users){
-        if(user.name == txtName){
+export function alterUserAdmin(txtName, email, password, entity) {
+    for (const user of users) {
+        if (user.name == txtName) {
             user.email = email
             user.password = password
             user.entidade = entity
@@ -196,19 +196,31 @@ export function alterPhoto(txtName, photo) {
 }
 
 //função que devolve todas as fotos de perfil
-export function getPhotos(){
+export function getPhotos(txtName) {
     let photoArray = []
-        for (const photo of photos) {
-            photoArray.push(photo.url)
+    for (const photo of photos) {
+        console.log("Photo is being assessed");
+        for (const user of users) {
+            if (user.name == txtName) {
+                console.log(photo.Level);
+                if (user.nivel >= photo.Level) {
+                    console.log("Photo meets requirement");
+                    photoArray.push(photo.url)
+                } else {
+                    
+                    console.log("Photo " + photo.name +" does not meet requirement");
+                }
+            }
         }
-        return photoArray
+    }
+    return photoArray
 }
 
 //função que devolve a exp do utilizador
 
-export function getExp(txtName){
+export function getExp(txtName) {
     for (const user of users) {
-        if(user.name == txtName){
+        if (user.name == txtName) {
             return user.exp
         }
     }
@@ -216,9 +228,9 @@ export function getExp(txtName){
 
 
 //função que da reset a experiencia do utilizador e aumenta o nivel
-export function resetExp(txtName){
-    for(const user of users){
-        if(user.name == txtName){
+export function resetExp(txtName) {
+    for (const user of users) {
+        if (user.name == txtName) {
             user.exp = 0
             user.nivel++;
             sessionStorage.setItem("level", user.nivel)
@@ -228,13 +240,13 @@ export function resetExp(txtName){
 }
 //função pa ver se o user é admin
 
-export function checkUser(txtName){
+export function checkUser(txtName) {
     for (const user of users) {
-        if(user.name == txtName){
-            if(user.entidade == "admin"){
+        if (user.name == txtName) {
+            if (user.entidade == "admin") {
                 return true
 
-            }else{
+            } else {
                 return false
             }
         }
@@ -243,23 +255,23 @@ export function checkUser(txtName){
 
 //função que retorna todos os utilizadores
 
-export function returnAllUsers(){
+export function returnAllUsers() {
     return users
 }
 
 //funçao que envia uma sugestao
 
-export function sendSugest(user, txt){
-    let sugestion1 = new Sugestion(user,txt)
+export function sendSugest(user, txt) {
+    let sugestion1 = new Sugestion(user, txt)
     sugestions.push(sugestion1)
     localStorage.setItem("sugestions", JSON.stringify(sugestions))
 }
 
 //funçao que retorna as sugestões
 
-export function returnSugestion(user){
+export function returnSugestion(user) {
     for (const sugestion of sugestions) {
-        if(sugestion.user == user){
+        if (sugestion.user == user) {
             return sugestion
         }
     }

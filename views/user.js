@@ -104,7 +104,7 @@ function renderUser(info) {
 }
 //renderizar as fotos de perfil na modal
 function renderImg() {
-    let photoArray = getPhotos()
+    let photoArray = getPhotos(user)
     let txt = '<div class="row">'
     for (let i = 0; i < photoArray.length; i++) {
         txt += `<div class="col-md-4"><input class="imgs" type="image" src="${photoArray[i]}" alt="Submit" width="80" height="80"></div>`
