@@ -1,19 +1,29 @@
 const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
+const finalPoints = document.getElementById('finalPoints')
+
+import User from "../models/userModel.js"
+import {
+    addTextExp
+} from "../controllers/userController.js"
 
 //state do(s) obejtos que o user tenha
 let state = {}
 
+let finalExp = 0;
+
 //inicia o jogo com o state vazio e na opção 1
 function startGame() {
     state = {}
+    finalExp = 0;
     showTextNode(1)
 }
 
 //funçao que faz o display das prompts de cada fase do jogo
 function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    textElement.innerText = textNode.text
+    textElement.innerText = textNode.text;
+
     //esconder os botões do html para os substituir pelos que são criados no codigo
     while (optionButtonsElement.firstChild) {
         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
@@ -38,157 +48,253 @@ function showOption(option) {
 function selectOption(option) {
     const nextTextNodeId = option.nextText
     if (nextTextNodeId <= 0) {
+        addTextExp(User, option.exp);
         return startGame()
     }
     state = Object.assign(state, option.setState)
     showTextNode(nextTextNodeId)
+    updateFinalExp(option);
+
+    finalPoints.innerText = "Experiência adquirida: " + finalExp + "/100";
+    console.log(finalExp);
 }
+
+function updateFinalExp(option) {
+    finalExp += option.exp;
+}
+
 
 //text nodes aka as prompts e as opções. cada uma passa parametro de id, text da prompt e opções que por sua vez têm um state associado 
 //e atribuem o step seguinte do jogo
 const textNodes = [{
         id: 1,
-        text: 'You wake up in a strange place and you see a jar of blue goo near you.',
+        text: 'Tu acordas com muiiiito sono, mas pronto para outro dia de escola. Estás a preparar a mochila e em cima da mesa está o teu lanche, uma garrafa de água e um frasquinho de desinfetante.',
         options: [{
-                text: 'Take the goo',
+                text: 'Colocar tudo na mochila',
                 setState: {
-                    blueGoo: true
+                    desinfetante: true,
+                    agua: true
                 },
-                nextText: 2
+                nextText: 2,
+                exp: 10
             },
             {
-                text: 'Leave the goo',
-                nextText: 2
+                text: 'Colocar apenas o lanche e a água na mochila',
+                setState: {
+                    agua: true
+                },
+                nextText: 2,
+                exp: 5
+            },
+            {
+                text: 'Colocar apenas o lanche na mochila',
+                nextText: 2,
+                exp: 1
             }
         ]
     },
     {
         id: 2,
-        text: 'You venture forth in search of answers to where you are when you come across a merchant.',
+        text: 'Ao sair de casa tu vês a tua mãe a colocar a máscara.',
         options: [{
-                text: 'Trade the goo for a sword',
-                //verificação se o utilizador tem os objetos necessarios para o step em questão
-                requiredState: (currentState) => currentState.blueGoo,
+                text: 'Colocas a tua máscara.',
                 //novo state depois de executada a "função" do node
                 setState: {
-                    blueGoo: false,
-                    sword: true
+                    mascaraOn: true
                 },
-                nextText: 3
+                nextText: 4,
+                exp: 10
             },
             {
-                text: 'Trade the goo for a shield',
-                requiredState: (currentState) => currentState.blueGoo,
-                setState: {
-                    blueGoo: false,
-                    shield: true
-                },
-                nextText: 3
-            },
-            {
-                text: 'Ignore the merchant',
-                nextText: 3
+                text: 'Sais de casa.',
+                setState: {},
+                nextText: 3,
+                exp: 0
             }
         ]
     },
     {
         id: 3,
-        text: 'After leaving the merchant you start to feel tired and stumble upon a small town next to a dangerous looking castle.',
+        text: 'Antes de saíres de casa a tua mão dá-te uma máscara para a mão e diz para a pores.',
         options: [{
-                text: 'Explore the castle',
-                nextText: 4
+                text: 'Colocas a tua máscara.',
+                setState: {
+                    mascaraOn: true
+                },
+                nextText: 4,
+                exp: 10
             },
             {
-                text: 'Find a room to sleep at in the town',
-                nextText: 5
-            },
-            {
-                text: 'Find some hay in a stable to sleep in',
-                nextText: 6
+                text: 'Colocas a máscara mas mal a tua mãe sai da tua beira tu tiras',
+                setState: {
+                    mascaraOff: true
+                },
+                nextText: 4,
+                exp: 5
             }
         ]
     },
     {
         id: 4,
-        text: 'You are so tired that you fall asleep while exploring the castle and are killed by some terrible monster in your sleep.',
+        text: 'A caminho da escola encontras os teus amigos, o que é que fazes',
         options: [{
-            text: 'Restart',
-            //game over
-            nextText: -1
-        }]
-    },
-    {
+                text: 'Colocas a máscara e vais ter com eles',
+                requiredState: (currentState) => currentState.mascaraOff,
+                setState: {
+                    mascaraOn: true
+                },
+                nextText: 5,
+                exp: 5
+            },
+            {
+                text: 'Vais ter com os teus amigos sem meter a máscara',
+                requiredState: (currentState) => currentState.mascaraOff,
+                nextText: 5,
+                exp: 0
+            },
+            {
+                text: 'Como tens a máscara na cara vais ter com os teus amigos',
+                requiredState: (currentState) => currentState.mascaraOn,
+                nextText: 5,
+                exp: 10
+            }
+        ]
+    }, {
         id: 5,
-        text: 'Without any money to buy a room you break into the nearest inn and fall asleep. After a few hours of sleep the owner of the inn finds you and has the town guard lock you in a cell.',
+        text: 'Tu chegas à tua escola com os teus amigos e o porteiro diz para vocês desinfetarem as mãos',
         options: [{
-            text: 'Restart',
-            nextText: -1
-        }]
-    },
-    {
-        id: 6,
-        text: 'You wake up well rested and full of energy ready to explore the nearby castle.',
-        options: [{
-            text: 'Explore the castle',
-            nextText: 7
-        }]
-    },
-    {
-        id: 7,
-        text: 'While exploring the castle you come across a horrible monster in your path.',
-        options: [{
-                text: 'Try to run',
-                nextText: 8
+                text: 'Desinfetas as mãos',
+                nextText: 6,
+                exp: 10
             },
             {
-                text: 'Attack it with your sword',
-                requiredState: (currentState) => currentState.sword,
-                nextText: 9
-            },
-            {
-                text: 'Hide behind your shield',
-                requiredState: (currentState) => currentState.shield,
-                nextText: 10
-            },
-            {
-                text: 'Throw the blue goo at it',
-                requiredState: (currentState) => currentState.blueGoo,
-                nextText: 11
+                text: 'Não desinfetas as mãos',
+                nextText: 7,
+                exp: 0
             }
         ]
     },
     {
-        id: 8,
-        text: 'Your attempts to run are in vain and the monster easily catches.',
+        id: 6,
+        text: 'Após uma manhâ de aulas tu vais para a cantina.',
         options: [{
-            text: 'Restart',
-            nextText: -1
+                text: 'Tiras a máscara mal entras',
+                setState: {
+                    mascaraOff: true
+                },
+                nextText: 8,
+                exp: 5
+            },
+            {
+                text: 'Ficas com a máscara até te sentares para comer',
+                setState: {
+                    mascaraOff: true
+                },
+                nextText: 8,
+                exp: 10
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: 'Talvez porque não desinfetaste as mãos desta e outras vezes, acabaste por ficar doente.',
+        options: [{
+            text: 'Ficas em casa 2 semanas doente sem poder fazer nada',
+            nextText: -1,
+            exp: 0
         }]
+    },
+    {
+        id: 8,
+        text: 'Quando acabas de comer.',
+        options: [{
+                text: 'Colocas a máscara, desinfetas as mãos e sais da cantina',
+                requiredState: (currentState) => currentState.desinfetante,
+                setState: {
+                    mascaraOn: true
+                },
+                nextText: 9,
+                exp: 10,
+            },
+            {
+                text: 'Colocas a máscara e sais da cantina',
+                setState: {
+                    mascaraOn: true
+                },
+                nextText: 9,
+                exp: 5
+            },
+            {
+                text: 'Sais da cantina sem máscara',
+                setState: {
+                    mascaraOff: true
+                },
+                nextText: 10,
+                exp: 0
+            }
+        ]
     },
     {
         id: 9,
-        text: 'You foolishly thought this monster could be slain with a single sword.',
+        text: 'Chegas ao recreio e um colega teu diz que tem sede',
         options: [{
-            text: 'Restart',
-            nextText: -1
-        }]
+                text: 'Ofereces água da tua garrafa',
+                requiredState: (currentState) => currentState.agua,
+                nextText: 11,
+                exp: 0
+            },
+            {
+                text: 'Bebem os dois do mesmo bebedouro',
+                nextText: 11,
+                exp: 0
+            },
+            {
+                text: 'Vão à cantina e pedem cada um o seu copo de água.',
+                nextText: 12,
+                exp: 20
+            }
+                
+        ]
     },
     {
         id: 10,
-        text: 'The monster laughed as you hid behind your shield and ate you.',
+        text: 'Ao final do dia começas a ficar com tosse e acabas por ficar doente.',
         options: [{
-            text: 'Restart',
-            nextText: -1
+            text: 'Se calhar devia começar a usar a máscara mais vezes',
+            nextText: -1,
+            exp: 0
+        }]
+    },
+
+    {
+        id: 11,
+        text: 'No final desse dia, o teu amigo vai para casa mais cedo porque está com sintomas. Tu também tens que fazer o teste, porque vocês beberam da mesma garrafa.',
+        options: [{
+            text: 'Ambos testam positivo e têm de ficar em casa 2 semanas.',
+            nextText: -1,
+            exp: 0
         }]
     },
     {
-        id: 11,
-        text: 'You threw your jar of goo at the monster and it exploded. After the dust settled you saw the monster was destroyed. Seeing your victory you decide to claim this castle as your and live out the rest of your days there.',
+        id: 12,
+        text: 'Ao fim do dia, vais para casa e contas aos teus pais sobre o teu dia. Eles ficam contentes em saber que cumpriste todas as regras.',
         options: [{
-            text: 'Congratulations. Play Again.',
-            nextText: -1
+            text: 'Como cumpriste as regras amanhã podes voltar à escola e estar com os teus amigos',
+            nextText: 13,
+            exp: 20
+        }]
+    },
+    {
+        id: 13,
+        text: 'Parabéns, superaste o desafio!!!!! Se quiseres voltar a tentar clica no botão em baixo.',
+        options:[{
+            text: 'Recomeçar',
+            nextText: -1,
+            exp: 0
         }]
     }
+
+
 ]
 
 //inicia o jogo

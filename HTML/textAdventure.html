@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="/textAdventure.js"></script>
+    <script type="module" defer src="/textAdventure.js"></script>
+    <script type="module" src="../controllers/userController.js"></script>
+    <script type="module" src="../models/userModel.js"></script>
     <title>Aventura Covid</title>
 </head>
 
 <body>
     <div class="container">
         <div id="text">Text</div>
+        <div id="finalPoints">Pontuação Final:</div>
         <div id="option-buttons" class="btn-grid">
             <button class="btn">Option 1</button>
             <button class="btn">Option 2</button>

@@ -13,9 +13,9 @@ if (localStorage.users) {
     users = JSON.parse(localStorage.users)
 } else {
     // Só vai entrar aqui a primeira vez que o site é iniciado
-    const user1 = new User("Edu", "26-09-1997", "../imagens/user5.png", 10, "admin123", "eduardoFerreira@gmail.com", "admin")
-    const user2 = new User("Tico", "15-02-1997", "../imagens/user3.png", 2, "password123", "anafixe@gmail.com", "criança")
-    const user3 = new User("Maria", "29-03-1999", "../imagens/user2.png", 8, "passProfixe", "mariaadmin@gmail.com", "admin")
+    const user1 = new User("Edu", "26-09-1997", "../imagens/user5.png", 10, 1, "admin123", "eduardoFerreira@gmail.com", "admin")
+    const user2 = new User("Tico", "15-02-1997", "../imagens/user3.png", 2, 1, "password123", "anafixe@gmail.com", "criança")
+    const user3 = new User("Maria", "29-03-1999", "../imagens/user2.png", 8, 1, "passProfixe", "mariaadmin@gmail.com", "admin")
     users.push(user1, user2, user3)
     localStorage.setItem("users", JSON.stringify(users))
 }
@@ -64,7 +64,7 @@ export function addUser(txtName, txtData, txtPassword, txtEmail) {
     }
     if (!existUser) {
         //faz push para a local storage dos dados do user e adiciona ao array
-        users.push(new User(txtName, txtData, "../assets/User1.png", 1, txtPassword, txtEmail, "criança"))
+        users.push(new User(txtName, txtData, "../assets/User1.png", 1, 1, txtPassword, txtEmail, "criança"))
         localStorage.setItem("users", JSON.stringify(users))
         alert(`Novo Utilizador ${txtName}!`)
         //depois de criado, volta para a pagina inicial
@@ -93,6 +93,15 @@ export function getLevel(txtName) {
         }
     }
 }
+
+export function getTextLevel(txtName) {
+    for (const user of users) {
+        if (user.name === txtName) {
+            return user.textNivel
+        }
+    }
+}
+
 //função que retorna a questao atual
 export function getQuest(txtName) {
     for (const user of users) {
@@ -105,11 +114,7 @@ export function getQuest(txtName) {
 //função de atualizar o exp e a Question atual
 
 export function addExp(txtName, exp, curQuest) {
-
-
     for (const user of users) {
-
-
         if (user.name == txtName) {
             user.currentQuest = curQuest
             let ex = user.exp;
@@ -123,8 +128,20 @@ export function addExp(txtName, exp, curQuest) {
         }
     }
 }
-//função que devolve a informaçao do utilizador (página de perfik)
 
+export function addTextExp(txtName, exp) {
+    for (const user of users) {
+        if (user.name == txtName) {
+            let ex = user.textExp;
+
+            user.textExp = +ex + +exp;
+
+            localStorage.setItem("users", JSON.stringify(users))
+        }
+    }
+}
+
+//função que devolve a informaçao do utilizador (página de perfil)
 export function userInfo(txtName) {
     for (const user of users) {
         if (user.name == txtName) {
@@ -207,8 +224,8 @@ export function getPhotos(txtName) {
                     console.log("Photo meets requirement");
                     photoArray.push(photo.url)
                 } else {
-                    
-                    console.log("Photo " + photo.name +" does not meet requirement");
+
+                    console.log("Photo " + photo.name + " does not meet requirement");
                 }
             }
         }
