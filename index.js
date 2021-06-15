@@ -1,19 +1,16 @@
 //importar todas as funçoes necessarias do controller
 import { userLogin, addUser, getLevel, getQuest } from "../controllers/userController.js";
-//const userName = document.getElementById("userName");
+
 //dar um listener aos butoes para abrir a modal de log in/registar
-/*const btnPlay = document.getElementById("btnPlay");
-btnPlay.addEventListener("click", function () {
-    modal()
-})*/
 const btnLog = document.getElementById("btnProfile");
 btnLog.addEventListener("click",function(){
     modal()
-})
-/*const btnCatag = document.getElementById("btnCatag")
-btnCatag.addEventListener("click", function(){
+});
+const btnCallToAction = document.getElementById("btnCallToAction")
+btnCallToAction.addEventListener('click', function() {
     modal()
-})*/
+});
+
 //modal de entrar na conta
 function modal(){
     swal({
@@ -47,12 +44,11 @@ function modal(){
                 alert("Dados Errados!");
                 modal();
             }
-
-
         },
         allowOutsideClick: () => !swal.isLoading()
     })
-    //se o utilizador clicar em criar uma conta nova, ira abrir se uma nova modal 
+
+    //se o utilizador clicar em criar uma conta nova, irá abrir se uma nova modal 
     const btnCreate = document.getElementById("newAcc");
     btnCreate.addEventListener("click", function () {
         swal({

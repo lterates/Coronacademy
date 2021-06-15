@@ -65,8 +65,6 @@ if (user) {
                 //altera informação do user
                 sessionStorage.setItem("user", name)
                 location.reload();
-
-
             },
             allowOutsideClick: () => !swal.isLoading()
         })
@@ -85,9 +83,8 @@ if (user) {
 
     //no caso do user não estar logged
 } else {
-    console.log("Error is coming from user.js");
+    console.log("User is not Logged In -> user.js");
     alert("Não foi efetuado o Login!");
-    //location.href = "/index.html"
 }
 
 //renderizar a informaçao do utilizador
