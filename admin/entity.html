@@ -3,74 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+  <title>Coronacademy BackOffice</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <script src="entityAdmin.js" type="module"></script>
+  <script src="../controllers/catalogController.js" type="module"></script>
+  <script src="../models/catalogModel.js" type="module"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container"> <a class="navbar-brand" href="/HTML/indexLog.html">
-        <i class="fa d-inline fa-lg fa-circle-o"></i>
-        <b> Fish Mania</b>
-      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar17">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar17">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="/admin/quizzManager.html">Quizz</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/admin/user.html">User</a> </li>
-        </ul>
-        <a class="btn btn-outline-light navbar-btn ml-md-2" id="btnBack">Back<br></a>
-      </div>
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand navbar-dark scrolling-navbar">
+  <div class="container ">
+    <!-- Brand -->
+    <a class="navbar-brand" href="../html/indexLogged.html">
+      <strong>Coronacademy Backoffice</strong>
+    </a>
+    <!-- Links -->
+    <div style="margin-right: 2vw;">
+      <ul class="navbar-nav">
+        <li class="nav-item py-2" style="padding-right: 2vw;">
+          <a href="quizzManager.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+            Gerir Quiz
+          </a>
+        </li>
+        <li class="nav-item py-2" style="padding-right:2vw;">
+          <a href="user.html" style="color: #0C0746; font-size: 1.3rem;" class="nav-link">
+            Gerir Utilizadores
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  <div class="py-5">
+  </div>
+</nav>  
+
+<!--CONTEÚDO-->
+  <div class="py-5" id="content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          
+        <div class="col-md-6">         
         </div>
         <div class="col-md-6"></div>
         <div class="col-md-6">
-          <div class="col-md-12">
-            <div class="list-group" id="cardList" style=" overflow: auto; width: 100%;
-            height: 500px;">
-            
+          <div class="col-md-10">
+            <div class="list-group" id="cardList" style=" overflow: auto; width: 100%; height: 500px;">
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-6 pl-5">
           <div class="col-md-12">
             <form id="c_form-h" class="">
               <div class="form-group row"> <label for="inputnameh" class="col-2 col-form-label">Name</label>
                 <div class="col-10">
                   <input type="text" class="form-control" id="inputnameh" placeholder="Name"> </div>
               </div>
-              <div class="form-group row"> <label for="inputDesc" class="col-2 col-form-label" style="">Description<br></label>
+              <div class="form-group row mt-3"> <label for="inputDesc" class="col-2 col-form-label">Description<br></label>
                 <div class="col-10">
                   <input type="text" class="form-control" id="inputDesc" placeholder="Desc"> </div>
-              </div>
-              <div class="form-group row"> <label for="" class="col-2 col-form-label" style="">Category</label>
-                <div class="col-10">
-                  <div class="row" style="margin:auto">
-                    <div class="col-md-6">
-                      <label class="radio-inline">
-                        <input type="radio" name="optradio" id="A" checked>Agua Quente
-                      </label>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="radio-inline">
-                        <input type="radio" name="optradio" id="B">Agua Fria
-                      </label>
-                    </div>
-                    </div>
-                </div>
-                </div>
               </div>
               <div class="row">
                 <div class="col-md-4"><img class="img-fluid d-block" src=""id="imgSlot"></div>
                 <div class="col-md-8">
-                  <div class="row">
+                  <div class="row mt-4">
                     <div class="col-md-6">
                       <h6 class="">Picture Link</h6>
                     </div>
@@ -85,10 +84,10 @@
                   <div class="row">
                   </div>
                  
-                  <div class="row">
-                    <div class="col-md-4"><a  class="btn btn-primary d-flex justify-content-center align-items-center ml-4 mt-2" id="btnAlter">Alter</a></div>
-                    <div class="col-md-4"><a class="btn btn-primary d-flex justify-content-center align-items-center ml-4 mt-2" id="btnCreate" href="#">Create New</a></div>
-                    <div class="col-md-4"><a  class="btn btn-primary d-flex justify-content-center align-items-center ml-4 mt-2"id="btnRemove">Remove</a></div>
+                  <div class="row mt-5">
+                    <div class="col-md-4"><a  class="btn d-flex justify-content-center align-items-center ml-4 mt-2" id="btnAlter">Alter</a></div>
+                    <div class="col-md-4"><a class="btn d-flex justify-content-center align-items-center ml-4 mt-2" id="btnCreate" href="#">Create New</a></div>
+                    <div class="col-md-4"><a  class="btn d-flex justify-content-center align-items-center ml-4 mt-2"id="btnRemove">Remove</a></div>
                    
                   </div>
                 </div>
@@ -99,13 +98,37 @@
       </div>
     </div>
   </div>
-  <script src="entityAdmin.js" type="module"></script>
-  <script src="../js/controllers/catalogFController.js" type="module"></script>
-  <script src="../js/controllers/catalogQController.js" type="module"></script>
-  <script src="../js/models/catalogModel.js" type="module"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
-
 </html>
+
+<style>
+body {
+  background-image: url("../assets/Background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #f7f4f8;
+  font-family: "Poppins";
+}
+
+strong {
+  color: #0C0746;
+  font-size: 2rem;
+  text-decoration: 5px underline solid orange;
+  font-family: "Poppins";
+}
+
+#btnAlter, #btnCreate, #btnRemove {
+  background-color: #ffa500;
+  color: white;
+}
+
+#content {
+  margin-top: 10vh;
+}
+
+nav {
+  background-color: #f7f4f8;
+}
+</style>
