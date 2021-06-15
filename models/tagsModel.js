@@ -4,5 +4,4 @@ export default class Tag {
         this.user = user
         this.tag = tag
     }
-  
 }

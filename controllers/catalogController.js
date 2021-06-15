@@ -17,7 +17,7 @@ if (localStorage.cartas) {
 } else {
     // Só vai entrar aqui a primeira vez
     const carta1 = new Carta("Peixe Palhaço", 1, "../assets/vaccine.png", "OCELLARIS CLOWNFISH, é umas das 30 espécies conhecidas na sua familía e o peixe que deu origem ao personagem Nemo")
-    const carta2 = new Carta("Peixe Disco",2, "../imagens/vaccine.png", "SYMPHYSODON DISCUS é um peixe de água doce quente que pode ser econtrado em rios na América do Sul.")
+    const carta2 = new Carta("Peixe Disco", 2, "../assets/vaccine.png", "SYMPHYSODON DISCUS é um peixe de água doce quente que pode ser econtrado em rios na América do Sul.")
     /*const carta3 = new Carta("Peixe Escalar", 3, "../imagens/escalar.jpg", "É um peixe tropical muito comum na América do Sul podendo ser encontrado nas margens dos rios. É um peixe curioso, pois não apresenta cores vivas como a maioria dos peixes tropicais.")
     const carta4 = new Carta("Peixe Espada",4, "../imagens/peixeEspada.jpg", "XIPHIAS GLADIUS,é uma espécie de grandes dimensões e barbatanas espinhosas que habita os mares tropicais")
     const carta5 = new Carta("Espiga-Azul",5, "../imagens/dory.jpg", "Também conhecidos como Peixe-Cirurgião. É o peixe que deu origem à personagen Dory e, ao contrário do filme, é muito inteligente e pode até reconhecer o dono.")
@@ -75,6 +75,7 @@ export function createCard(level) {
             //se o numero da carta criada corresponder a um id contar os likes os comments para dar display
             if (start == carta.id) {
                 let cont = countComments(carta.id);
+                console.log("CONT: " + cont)
 
                 let likeCont = countLikes(carta.id);
                 div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/cardbg.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
@@ -102,9 +103,7 @@ export function createCardSort(level, sort) {
             if (start <= level) {
                 if(carta.id <= level){    
                     let cont = countComments(carta.id);
-    
                     let likeCont = countLikes(carta.id);
-    
                     div += '<div class="col-lg-3 p-3 col-md-10 view" id="' + carta.id + '" > <div class="card" style="height:100%;"><img class="card-img-top" src="../assets/vaccine.png" alt="Card image" style="width:100%"><div class="card-img-overlay"><img class="card-img-top" src="' + carta.card + '" alt="Card image cap" style="width:100%; height:60%"><div class="card-body"><h4 class="card-text" style="text-align:center">' + carta.name + '</h4><div class = "row" style="text-align:center"><div class ="col-md-6"><i class="fas fa-heart fa-2x">' + likeCont + '</i></div><div class ="col-md-6"><i class="fas fa-comment fa-2x">' + cont + '</i></div></div></div></div></div></div>'
                 
                 start++;
@@ -152,11 +151,10 @@ export function countComments(cardId) {
         if (comment.cardId == cardId) {
             if(comment.comment != ""){
                 cont++;
+                console.log("CONTAR COMENTARIOS CRL: " + cont)
             }
-            
         }
     }
-
     return cont;
 }
 
