@@ -24,6 +24,11 @@ const btnAdmin = document.getElementById("btnAdmin")
 let info = userInfo(user);
 let pageLoaded = window.location.pathname;
 console.log(pageLoaded)
+const btnLogout = document.getElementById('btnLogOut')
+btnLogout.addEventListener('click', function(){
+    location.href="../index.html"
+})
+
 
 //logout, se o user clicar em log out a session storage apaga e volta ao index.html
 if (user) {
