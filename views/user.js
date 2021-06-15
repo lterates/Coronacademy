@@ -81,11 +81,12 @@ if (user) {
             imgModal.style.display = "none"
         })
     })
-} else if (pageLoaded="/index.html") { //NO CASO DE ESTAR NA HOME PAGE E NÃO ESTAR LOGGED IN
+} else if (pageLoaded=="/index.html") { //NO CASO DE ESTAR NA HOME PAGE E NÃO ESTAR LOGGED IN
     console.log("User is on main page and not logged in")
 } else { //no caso do user não estar logged
     console.log("User is not Logged In -> user.js");
     alert("Não foi efetuado o Login!");
+    setTimeout( location.href="../index.html", 3000)
 }
 
 //renderizar a informaçao do utilizador
