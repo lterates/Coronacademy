@@ -81,7 +81,7 @@ export function alterQuest(quizz, newQuizz, ans1, ans2, ans3, ans4, corAns) {
             question.question = newQuizz
             question.answers = ans1 + "$" + ans2 + "$" + ans3 + "$" + ans4
             question.correctAnswer = corAns
-            localStorage.setItem("questions", JSON.stringify(questions))
+            localStorage.setItem("questions", JSON.stringify(question))
         }
     }
 }

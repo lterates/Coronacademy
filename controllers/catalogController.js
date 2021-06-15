@@ -320,7 +320,7 @@ export function alterCard(cartaName, newCarta, desc, link) {
             carta.name = newCarta   
             carta.descricao = desc
             carta.card = link
-            localStorage.setItem("cartas", JSON.stringify(cartas))
+            localStorage.setItem("cartas", JSON.stringify(carta))
 
         }
     }
