@@ -50,21 +50,17 @@ if (user) {
 }
 //funçao que carrega as perguntas
 function loadQuestion() {
-
     let userXp = getExp(user)
     //verificar se o utilizador subiu de nivel
     if(userXp >= 100){
         levelModal.style.display = "block"
         resetExp(user);
     }
-
     let curQuest = sessionStorage.getItem("curQuest");
     cont = curQuest;
     let quests = setQuestion(level);
     console.log("curQuest " + cont)
     console.log("questsLength " + quests.length)
-
-
     let parts = [];
 
     //se todas as questoes forem respondidas apresenta esta modal para enviar sugestoes

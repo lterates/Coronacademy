@@ -148,7 +148,6 @@ export function countComments(cardId) {
         if (comment.cardId == cardId) {
             if(comment.comment != ""){
                 cont++;
-                console.log("CONTAR COMENTARIOS CRL: " + cont)
             }
         }
     }

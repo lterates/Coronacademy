@@ -70,12 +70,11 @@ if (user) {
 function openModal(id) {
   let cardInfo = getCardInfo(id);
   let cont = countComments(id)
-  console.log("PILA RALADA:" + cont)
   let canLike = verifyLike(id, user);
   //verifica se o utilzador ja deu like ou nao se ja o icon do like muda de cor para simbolizar que ja foi clicado
   if(canLike){
     swal({
-      html: '<div class="card">' +
+      html: '<div class="card" style="font-family: "Poppins";>' +
         '<img src="' + cardInfo[2] + '" alt="Avatar" style="width:100%; height:100% display: block; margin-left: auto;margin-right: auto">' +
         '<div class="container">' +
         '<h3><b>' + cardInfo[0] + '</b></h3>' +
@@ -104,7 +103,7 @@ function openModal(id) {
     })
   }else{
     swal({
-      html: '<div class="card">' +
+      html: '<div class="card" style="font-family: "Poppins";">' +
         '<img src="' + cardInfo[2] + '" alt="Avatar" style="width:100%; height:100% display: block; margin-left: auto;margin-right: auto">' +
         '<div class="container">' +
         '<h3><b>' + cardInfo[0] + '</b></h3>' +
