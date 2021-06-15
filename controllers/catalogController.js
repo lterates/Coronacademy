@@ -16,20 +16,17 @@ if (localStorage.cartas) {
     cartas = JSON.parse(localStorage.cartas)
 } else {
     // Só vai entrar aqui a primeira vez
-    const carta1 = new Carta("Peixe Palhaço", 1, "../assets/vaccine.png", "OCELLARIS CLOWNFISH, é umas das 30 espécies conhecidas na sua familía e o peixe que deu origem ao personagem Nemo")
-    const carta2 = new Carta("Peixe Disco", 2, "../assets/vaccine.png", "SYMPHYSODON DISCUS é um peixe de água doce quente que pode ser econtrado em rios na América do Sul.")
-    /*const carta3 = new Carta("Peixe Escalar", 3, "../imagens/escalar.jpg", "É um peixe tropical muito comum na América do Sul podendo ser encontrado nas margens dos rios. É um peixe curioso, pois não apresenta cores vivas como a maioria dos peixes tropicais.")
-    const carta4 = new Carta("Peixe Espada",4, "../imagens/peixeEspada.jpg", "XIPHIAS GLADIUS,é uma espécie de grandes dimensões e barbatanas espinhosas que habita os mares tropicais")
-    const carta5 = new Carta("Espiga-Azul",5, "../imagens/dory.jpg", "Também conhecidos como Peixe-Cirurgião. É o peixe que deu origem à personagen Dory e, ao contrário do filme, é muito inteligente e pode até reconhecer o dono.")
-    const carta6 = new Carta("Cavalo-Marinho", 6, "../imagens/cavalo.jfif", "É um peixe ósseo com uma forma muito particular. Quando um casal de cavalos-marinhos tem crias, o macho carrega os ovos.")
-    const carta7 = new Carta("Peixe-Balão", 7, "../imagens/balao.jfif", "Peixe de água salgada, comum nos oceanos Pacifico e Indico. Embora os espinhos pareçam ser o maior perigo, a verdadeira ameaça é o veneno que este peixe carrega no figado.")
-    const carta8 = new Carta("Peixe-Abelha", 8, "../imagens/abelha.jpg", "Pode ser encontrado na Tailândia e viver até aos 4 anos.")
-    const carta9 = new Carta("Tubarão Cauda Vermelha", 9, "../imagens/bicolor.jpg", "Embora seja muito comum na Tailândia, acredita-se que está extinto no seu ambiente natural e é apenas criado em cativeiro.")
-    const carta10 = new Carta("Tetra-Negro", 10, "../imagens/neon.jpg", "Nativo do rio Paraguai na América do Sul, é também conhecido como viúva-negra.")
-    const carta11 = new Carta("Zanclidae",11, "../imagens/idol.jpg", "Peixe preferido para aquário, embora tenha muita dificuldade em adaptar-se. Conhecido pelo personagem Gil em 'À Procura de Nemo'")
-    const carta12 = new Carta("Peixe-Leão",12, "../imagens/leao.jpg", "É um peixe natural do oceano Indico ou Pacifico, altamente venenoso que pode chegar a viver 15 anos.")*/
+    const carta1 = new Carta("Sobre a vacina", 1, "../assets/vaccine.png", "A vacinação contra a COVID-19 surge como uma resposta central e de reforço, a par das respostas já existentes, tendo como objetivo prevenir o surgimento de doença grave e das suas consequências, reduzindo a pressão exercida sobre o sistema de saúde.")
+    const carta2 = new Carta("Sobre a máscara",2, "../assets/mask.png", "A utilização de máscara serve para evitar que eu passe a infeção a outra pessoa e evitar apanha-la de outros.")
+    const carta3 = new Carta("Sobre o desinfetante", 3, "../assets/gel.png", "Lavar as mãos várias vezes por dia com água e sabão durante pelo menos 20 segundos ou higienizar com um desinfetante (solução ou gel) à base de álcool é a melhor medida para nos protegermos e para protegermos os outros do contágio de covid-19 (e também de outras doenças).")
+    const carta4 = new Carta("Sobre o confinamento",4, "../assets/quarantine.png", "Reduzindo o número de contactos, o confinamente reduz o número de contágios.")
+    const carta5 = new Carta("Sobre o virus",5, "../assets/covid.png", "A doença por coronavírus (COVID-19) é uma doença infeciosa causada por um coronavírus descoberto recentemente.")
+    const carta6 = new Carta("Sobre estar doente", 6, "../assets/sick.png", "A maioria das pessoas que contraem a COVID-19 tem sintomas ligeiros a moderados e recupera sem necessitar de tratamento especial.")
+    const carta7 = new Carta("Proteger os outros", 7, "../assets/grandparents.png", "Cumprir as normas é importante não só por nós, mas também pelos outros que, como os nosso avós, podem ficar mais doentes do que nós.")
+    const carta8 = new Carta("Animais e o corona-virus", 8, "../assets/dog.png", "Cães e gatos podem contrair um coronavírus próprio das suas espécies. Ele nada tem a ver com a Covid-19 e não é transmitido para o ser humano.")
+    const carta9 = new Carta("Sobre o distanciamento", 9, "../assets/distance.png", "Recomenda-se manter a distância física (um mínimo de um ou, idealmente, dois metros) em relação às outras pessoas em locais públicos e evitar grandes aglomerados de pessoas para reduzir o risco de infeção através das gotículas respiratórias.")
 
-    cartas.push(carta1, carta2/*, carta3, carta4, carta5, carta6, carta7, carta8,carta9,carta10,carta11,carta12*/)
+    cartas.push(carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8,carta9)
     localStorage.setItem("cartas", JSON.stringify(cartas))
 }
 
