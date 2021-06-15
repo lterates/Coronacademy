@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+  <script src="../admin/userAdmin.js" type="module"></script>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
     <script type="module" defer src="/textAdventure.js"></script>
     <script type="module" src="../controllers/userController.js"></script>
@@ -79,6 +80,13 @@
         </div>
     </div>
 
+    <div class="col-md-4 mx-auto text-center shadow-lg" id="leaderboard">
+      <ul class="list-group" style="background-color: white;">Leaderboards</ul>
+      <ul id="userList" class="list-group shadow-lg">
+        Hello TEST
+      </ul>
+    </div>
+
 </body>
 
 </html>
@@ -92,6 +100,11 @@
     background-color: #f7f4f8;
     font-family: "Poppins";
   }
+
+  #leaderboard {
+    margin-top: 8vh;
+  }
+
 
   strong {
     color: #0C0746;
