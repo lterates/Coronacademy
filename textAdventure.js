@@ -17,7 +17,10 @@ let finalExp = 0;
 function startGame() {
     state = {}
     finalExp = 0;
+    finalPoints.innerText = "Experiência adquirida: " + finalExp + "/100";
+
     showTextNode(1)
+    
 }
 
 //funçao que faz o display das prompts de cada fase do jogo
@@ -55,7 +58,6 @@ function selectOption(option) {
     state = Object.assign(state, option.setState)
     showTextNode(nextTextNodeId)
     updateFinalExp(option);
-
     finalPoints.innerText = "Experiência adquirida: " + finalExp + "/100";
     console.log(finalExp);
 }
